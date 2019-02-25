@@ -2,7 +2,7 @@ import React from 'react';
 
 const Intro = () => (
   <div>
-      <h1>Welcome test</h1>
+      <h1>Welcome test 1</h1>
   </div>
 );
 

@@ -1,7 +1,13 @@
 import ReactDOM from 'react-dom';
-import App from './routes';
 import './index.scss';
+import React from 'react';
+import Intro from './intro';
 
-const routes = App();
-
-ReactDOM.render(routes, document.getElementById('root'));
+const App = () => (
+    <div>
+        <Intro />
+    </div>
+);
+  
+export default App;
+ReactDOM.render(<App />, document.getElementById('root'));
