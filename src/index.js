@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom';
 import './index.scss';
 import React from 'react';
-import Header from './intro/Header';
-import Sidepannel from './intro/Sidepannel';
+import Header from './components/header/Header';
+import Sidepannel from './components/sidepannel/Sidepannel';
 
 const App = () => (
     <div>
