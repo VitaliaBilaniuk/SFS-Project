@@ -1,9 +1,12 @@
 import React from 'react';
+import KeyImage from './assets/logo-white.svg'; 
 
 const Header = () => (
-  <div class="sfs-header">
-      <h1>This will be header</h1>
-  </div>
+  <header className="App-header">
+    
+    <img src={KeyImage} />
+    <span title="Stuff for Staff">SFS</span>
+  </header>
 );
 
 export default Header;
