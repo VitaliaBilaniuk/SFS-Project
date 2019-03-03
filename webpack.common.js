@@ -1,6 +1,6 @@
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {   app: './src/index.js'},
@@ -25,8 +25,11 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new CopyWebpackPlugin([
-      { from: './src/index.html' }
-    ]),
+    new HtmlWebpackPlugin({
+      title: 'SFS Email Signature Generator',
+      template : __dirname + '/src/index.html',
+      filename : 'index.html',
+      inject : 'body'
+    })
   ]
 }
