@@ -1,4 +1,17 @@
-.sfs-header {
-    background-color: #F4F9FD;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 62.5%;
+    overflow: hidden;
+    height: 100%;
+    min-height: 100%;
+    letter-spacing: -.0003em;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: 'liga' on;
+    font-feature-settings: 'liga' on;
+    -webkit-text-size-adjust: 100%;
 }
-     
