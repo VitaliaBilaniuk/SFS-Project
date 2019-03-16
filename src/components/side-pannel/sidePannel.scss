@@ -1,0 +1,45 @@
+.sfs-sidebar {
+    max-width: 395px;
+    overflow: hidden;
+    overflow-y: auto;
+    height: calc(100vh - 100px);
+    &__container {
+        padding: 0 20px;
+    }
+    &__title {
+        font-family: "Open Sans", sans-serif;
+        font-size: 32px;
+        font-weight: 300;
+        line-height: 1;
+        color: #111123;
+    }
+    .sfs-label {
+        display: block;
+        width: 100%;
+        margin: 35px 0 15px 1px;
+        cursor: pointer;
+        transition: color .3s ease-in;
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1;
+        color: #111123;
+        input {
+            display: block;
+            padding: 10px 0;
+            transition: border .195s ease-in;
+            text-overflow: clip;
+            border: 0 none;
+            border-bottom: 1px solid #111123;
+            border-radius: 0;
+            background: #fefefe;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            font-family: "Open Sans", sans-serif;
+            font-size: 18px;
+            line-height: 24px;
+            color: rgba(17, 17, 35, 0.3);
+        }
+    }
+}
