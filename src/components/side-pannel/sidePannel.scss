@@ -1,3 +1,8 @@
+$drag-handle-width: 9px !default;
+$drag-handle-height: 9px !default;
+$drag-bar-size: 6px !default;
+@import "../../../node_modules/react-image-crop/lib/ReactCrop.scss";
+
 .sfs-sidebar {
     max-width: 395px;
     overflow: hidden;
@@ -42,4 +47,56 @@
             color: rgba(17, 17, 35, 0.3);
         }
     }
+    .sfs-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    .sfs-crop {
+        position: absolute;
+        margin: auto;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px 40px;
+        overflow-y: auto;
+        width: 60%;
+        height: auto;
+        max-width: 600px;
+        h3 {
+            font-size: 32px;
+            margin: 0 0 20px 0;
+            font-weight: normal;
+        }
+        .ReactCrop {
+            margin: 20px auto 40px;
+        }
+        button {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 0;
+            display: inline-block;
+            min-width: 12px;
+            min-height: 24px;
+            padding: 22px 14px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            text-align: center;
+            vertical-align: middle;
+            text-decoration: none;
+            color: #ffdb15;
+            border: 0 none;
+            border-radius: 0;
+            outline: none;
+            background-color: #111023;
+        }
+    }
+ 
 }
