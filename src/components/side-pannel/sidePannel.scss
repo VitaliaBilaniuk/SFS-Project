@@ -31,6 +31,7 @@ $drag-bar-size: 6px !default;
         color: #111123;
         input {
             display: block;
+            width:100%;
             padding: 10px 0;
             transition: border .195s ease-in;
             text-overflow: clip;
@@ -73,7 +74,12 @@ $drag-bar-size: 6px !default;
             font-weight: normal;
         }
         .ReactCrop {
-            margin: 20px auto 40px;
+            margin: 60px auto 40px;
+            max-width: 335px;
+            display: block;
+            .ReactCrop__crop-selection {
+                border-radius: 50%
+            }
         }
         button {
             font-size: 14px;
@@ -98,5 +104,20 @@ $drag-bar-size: 6px !default;
             background-color: #111023;
         }
     }
- 
+    .sfs-select{
+        min-height: 150px;
+        input {
+            display: none;
+        }
+        &__image {
+            display: block;
+            margin: 10px auto 0;
+            overflow: hidden;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            background-image: url('./assets/test.png') ;
+            cursor: pointer;
+        }
+    }   
 }

@@ -48,6 +48,11 @@ class ImageUpload extends PureComponent {
       this.setState({ showElements: false });
     }
   
+    handleImitateClick = () => {
+      var inputField = this.refs.fileField;
+      inputField.click();
+    }
+
     async makeClientCrop(crop, pixelCrop) {
       if (this.imageRef && crop.width && crop.height) {
         const croppedImageUrl = await this.getCroppedImg(
@@ -97,8 +102,9 @@ class ImageUpload extends PureComponent {
       const { crop, croppedImageUrl, src } = this.state;
       return (
         <div>
-          <div>
-            <input type="file" onChange={this.onSelectFile} />
+          <div className="sfs-select">
+            <input ref="fileField" type="file" onChange={this.onSelectFile} />
+            <img alt="" className="sfs-select__image" style={{ maxWidth: '100%' }} onClick={this.handleImitateClick} src={croppedImageUrl} />
           </div>
           { this.state.showElements ? 
             <div>
@@ -118,9 +124,6 @@ class ImageUpload extends PureComponent {
               </div>
             </div>
           : null }        
-          {croppedImageUrl && (
-            <img alt="Crop" style={{ maxWidth: '100%' }} src={croppedImageUrl} />
-          )}
         </div>
       );
     }
