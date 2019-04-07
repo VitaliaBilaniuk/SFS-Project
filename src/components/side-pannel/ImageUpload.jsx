@@ -1,6 +1,7 @@
 import React from 'react';
 import { PureComponent } from 'react';
 import ReactCrop from 'react-image-crop';
+import ProfileImg from './assets/male-new.svg';
 import './sidePannel.scss';
 
 
@@ -18,8 +19,7 @@ class ImageUpload extends PureComponent {
       },
       showElements: false,
     };
-
-   
+    this.fileField = React.createRef();
   }
     onSelectFile = e => {
       if (e.target.files && e.target.files.length > 0) {
@@ -49,7 +49,7 @@ class ImageUpload extends PureComponent {
     }
   
     handleImitateClick = () => {
-      var inputField = this.refs.fileField;
+      var inputField = this.fileField.current;
       inputField.click();
     }
 
@@ -100,11 +100,16 @@ class ImageUpload extends PureComponent {
     
     render() {
       const { crop, croppedImageUrl, src } = this.state;
+      let imageSrc ={ProfileImg};
       return (
         <div>
           <div className="sfs-select">
-            <input ref="fileField" type="file" onChange={this.onSelectFile} />
-            <img alt="" className="sfs-select__image" style={{ maxWidth: '100%' }} onClick={this.handleImitateClick} src={croppedImageUrl} />
+          <input ref={this.fileField} type="file" onChange={this.onSelectFile} />        
+          <img alt="sdsds" className="sfs-select__image" 
+            style={{ maxWidth: '100%' }} 
+            onClick={this.handleImitateClick}               
+            src= { croppedImageUrl ? croppedImageUrl : ProfileImg }       
+          />    
           </div>
           { this.state.showElements ? 
             <div>
