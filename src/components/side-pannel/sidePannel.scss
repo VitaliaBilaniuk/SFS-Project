@@ -29,94 +29,44 @@ $drag-bar-size: 6px !default;
         font-weight: bold;
         line-height: 1;
         color: #111123;
-        input {
-            display: block;
-            width:100%;
-            padding: 10px 0;
-            transition: border .195s ease-in;
-            text-overflow: clip;
-            border: 0 none;
-            border-bottom: 1px solid #111123;
-            border-radius: 0;
-            background: #fefefe;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            font-family: "Open Sans", sans-serif;
-            font-size: 18px;
-            line-height: 24px;
-            color: rgba(17, 17, 35, 0.3);
-        }
     }
-    .sfs-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.3);
+    .sfs-input {
+        display: block;
+        width:100%;
+        padding: 10px 0;
+        transition: border .195s ease-in;
+        text-overflow: clip;
+        border: 0 none;
+        border-bottom: 1px solid #111123;
+        border-radius: 0;
+        background: #fefefe;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        font-family: "Open Sans", sans-serif;
+        font-size: 18px;
+        line-height: 24px;
+        color: rgba(17, 17, 35, 0.3);
+        outline: none;
     }
-    .sfs-crop {
-        position: absolute;
-        margin: auto;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 20px 40px;
-        overflow-y: auto;
-        width: 60%;
-        height: auto;
-        max-width: 600px;
-        h3 {
-            font-size: 32px;
-            margin: 0 0 20px 0;
-            font-weight: normal;
-        }
-        .ReactCrop {
-            margin: 60px auto 40px;
-            max-width: 335px;
-            display: block;
-            .ReactCrop__crop-selection {
-                border-radius: 50%
-            }
-        }
-        button {
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 0;
+    &__subtitle {
+        font-family: "Open Sans", sans-serif;
+        font-size: 20px;
+        color: #111123;
+        font-weight: normal;
+    }
+    .sfs-checkbox-label {
+        display: block;
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        color: #111123;
+        .sfs-checkbox-label__input {
             display: inline-block;
-            min-width: 12px;
-            min-height: 24px;
-            padding: 22px 14px;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            text-align: center;
+            width: 15px;
+            height: 15px;
             vertical-align: middle;
-            text-decoration: none;
-            color: #ffdb15;
-            border: 0 none;
-            border-radius: 0;
-            outline: none;
-            background-color: #111023;
+            border: solid 1px #111023;
+            cursor: pointer;
         }
     }
-    .sfs-select{
-        min-height: 150px;
-        input {
-            display: none;
-        }
-        &__image {
-            display: block;
-            margin: 10px auto 0;
-            overflow: hidden;
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            cursor: pointer;
-        }
-    }   
 }

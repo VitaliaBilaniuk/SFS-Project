@@ -2,8 +2,7 @@ import React from 'react';
 import { PureComponent } from 'react';
 import ReactCrop from 'react-image-crop';
 import ProfileImg from './assets/male-new.svg';
-import './sidePannel.scss';
-
+import './ImageUpload.scss';
 
 class ImageUpload extends PureComponent {
 
