@@ -1,5 +1,6 @@
 import React from 'react';
 import PhoneInput from 'react-phone-number-input';
+import AddImg from './assets/icon-add.svg'; 
 import './sidePannel.scss';
 import './PhoneForm.scss';
 
@@ -15,6 +16,8 @@ class Form extends React.Component {
         websiteVisibility: false,
         afterwordVisibility: false,
         skypeVisibility: true,
+        addButtonVisibility: false,
+        secondPhone: false,
       };
   
       this.handleChangeName = this.handleChangeName.bind(this);
@@ -22,10 +25,13 @@ class Form extends React.Component {
       this.handleChangePosition = this.handleChangePosition.bind(this);
       this.handleChangeSkype = this.handleChangeSkype.bind(this);
       this.handleChangeWebsite = this.handleChangeWebsite.bind(this);
+      this.handleChangePhone = this.handleChangePhone.bind(this);
       this.handleChangeAfterword = this.handleChangeAfterword.bind(this);
       this.handleWebsiteInputToggle = this.handleWebsiteInputToggle.bind(this);
       this.handleAfterwordInputToggle = this.handleAfterwordInputToggle.bind(this);
       this.handleSkypeInputToggle = this.handleSkypeInputToggle.bind(this);
+      this.handleInputAdd = this.handleInputAdd.bind(this);
+      this.handleInputRemove = this.handleInputRemove.bind(this);
     }
   
     handleChangeName(event) {
@@ -46,6 +52,19 @@ class Form extends React.Component {
     handleChangeSkype(event) {
       this.setState({skype: event.target.value});
       console.log('Skype was submitted: ' + this.state.skype);
+    }
+
+    handleChangePhone(value) {
+      if (value.length >= 8 ) {
+        this.setState({
+          addButtonVisibility: true
+        });
+      }
+      else {
+        this.setState({
+          addButtonVisibility: false
+        });
+      }
     }
 
     handleChangeWebsite(event) {
@@ -76,6 +95,20 @@ class Form extends React.Component {
       });
     }
 
+    handleInputAdd(e) {
+      e.preventDefault();
+      this.setState({
+        secondPhone: true
+      });
+    }
+
+    handleInputRemove(e) {
+      e.preventDefault();
+      this.setState({
+        secondPhone: false
+      });
+    }
+
     render() {
       return (
         <form>
@@ -97,12 +130,29 @@ class Form extends React.Component {
             <input type="text" className="sfs-input" placeholder="vitaliia.bilaniuk" value={this.state.skype} onChange={this.handleChangeSkype} />
           </label>
           : null }
-          <label className="sfs-label">Phone number</label>
+          <label className="sfs-label sfs-label__add">
+          { this.state.addButtonVisibility ? 
+          <button onClick={this.handleInputAdd} className="sfs-button__add"><img src={AddImg}/></button>
+          : null }
+          Phone number</label>
           <PhoneInput
             className="sfs-input"
             placeholder="(201) 555-0123"
             value={ this.state.phone }
-            onChange={ phone => this.setState({ phone }) } />
+            onChange={  this.handleChangePhone} />
+          { this.state.secondPhone ? 
+            <div>
+              <label className="sfs-label sfs-label__add">
+                <button onClick={this.handleInputRemove} className="sfs-button__add sfs-button__remove"><img src={AddImg}/></button>
+                Mobile
+              </label>
+              <PhoneInput
+              className="sfs-input"
+              placeholder="(201) 555-0123"
+              value={ this.state.mobile }
+              onChange={ mobile => this.setState({ mobile }) } />
+            </div>
+          : null } 
           <h2 className="sfs-sidebar__subtitle">Customize Fields:</h2>
           <label className="sfs-checkbox-label">
             <input type="checkbox" defaultChecked={this.state.websiteVisibility} onChange={this.handleWebsiteInputToggle} className="sfs-checkbox-label__input" name="website" value="website"/> Customize company website

@@ -1,7 +1,7 @@
 $drag-handle-width: 9px !default;
 $drag-handle-height: 9px !default;
 $drag-bar-size: 6px !default;
-@import "../../../node_modules/react-image-crop/lib/ReactCrop.scss";
+@import "~react-image-crop/lib/ReactCrop.scss";
 
 .sfs-sidebar {
     max-width: 395px;
@@ -29,6 +29,13 @@ $drag-bar-size: 6px !default;
         font-weight: bold;
         line-height: 1;
         color: #111123;
+    }
+    .sfs-label__add {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        align-items: flex-end;
+        position: relative;
     }
     .sfs-input {
         display: block;
@@ -68,5 +75,21 @@ $drag-bar-size: 6px !default;
             border: solid 1px #111023;
             cursor: pointer;
         }
+    }
+    .sfs-button__add {
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        right: 0;
+        bottom: -13px;
+        outline: none;
+        cursor: pointer;
+    }
+    .sfs-button__remove {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transform-origin: bottom;
+        transform-origin: bottom;
+        right: 15px;
     }
 }
