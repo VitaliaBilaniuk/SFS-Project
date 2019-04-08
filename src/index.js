@@ -2,12 +2,12 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import React from 'react';
 import Header from './components/header/Header';
-import Sidepannel from './components/sidepannel/Sidepannel';
+import SidePannel from './components/side-pannel/SidePannel';
 
 const App = () => (
     <div>
         <Header />
-        <Sidepannel />
+        <SidePannel />
     </div>
 );
   
