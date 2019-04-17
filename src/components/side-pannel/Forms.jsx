@@ -8,50 +8,24 @@ class Form extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        name: '',
-        position: '',
-        email: '',
-        skype: '',
-        website: '',
         websiteVisibility: false,
         afterwordVisibility: false,
         skypeVisibility: true,
         addButtonVisibility: false,
         secondPhone: false,
       };
-  
-      this.handleChangeName = this.handleChangeName.bind(this);
-      this.handleChangeEmail = this.handleChangeEmail.bind(this);
-      this.handleChangePosition = this.handleChangePosition.bind(this);
-      this.handleChangeSkype = this.handleChangeSkype.bind(this);
-      this.handleChangeWebsite = this.handleChangeWebsite.bind(this);
       this.handleChangePhone = this.handleChangePhone.bind(this);
-      this.handleChangeAfterword = this.handleChangeAfterword.bind(this);
       this.handleWebsiteInputToggle = this.handleWebsiteInputToggle.bind(this);
       this.handleAfterwordInputToggle = this.handleAfterwordInputToggle.bind(this);
       this.handleSkypeInputToggle = this.handleSkypeInputToggle.bind(this);
       this.handleInputAdd = this.handleInputAdd.bind(this);
       this.handleInputRemove = this.handleInputRemove.bind(this);
+      this.handleInputChange = this.handleInputChange.bind(this);
     }
   
-    handleChangeName(event) {
-      this.setState({name: event.target.value});
-      console.log('A name was submitted: ' + this.state.name);
-    }
-
-    handleChangePosition(event) {
-      this.setState({position: event.target.value});
-      console.log('Position was submitted: ' + this.state.position);
-    }
-  
-    handleChangeEmail(event) {
-      this.setState({email: event.target.value});
-      console.log('Email was submitted: ' + this.state.email);
-    }
-
-    handleChangeSkype(event) {
-      this.setState({skype: event.target.value});
-      console.log('Skype was submitted: ' + this.state.skype);
+    handleInputChange(e) {
+      this.setState({[e.name]: e.target.value});
+      console.log('A name was submitted: '+ e.target.value);
     }
 
     handleChangePhone(value) {
@@ -65,11 +39,6 @@ class Form extends React.Component {
           addButtonVisibility: false
         });
       }
-    }
-
-    handleChangeWebsite(event) {
-      this.setState({website: event.target.value});
-      console.log('Skype was submitted: ' + this.state.website);
     }
 
     handleChangeAfterword(event) {
@@ -111,23 +80,23 @@ class Form extends React.Component {
 
     render() {
       return (
-        <form>
+        <form>     
           <label className="sfs-label">
-            Full Name
-            <input type="text" className="sfs-input" placeholder="John Doe" value={this.state.name} onChange={this.handleChangeName} />
+            Full Namethis.state.name
+            <input type="text" className="sfs-input" name="name" placeholder="John Doe" value={this.state.value} onChange={this.handleInputChange} />
           </label>
           <label className="sfs-label">
             Position
-            <input type="text" className="sfs-input" placeholder="ui engineer" value={this.state.position} onChange={this.handleChangePosition} />
+            <input type="text" className="sfs-input" name="position" placeholder="ui engineer" value={this.state.value} onChange={this.handleInputChange} />
           </label>
           <label className="sfs-label">
             Email
-            <input type="email" className="sfs-input" placeholder="vitaliia.bilaniuk@perfectial.com" value={this.state.email} onChange={this.handleChangeEmail} />
+            <input type="email" name="email" className="sfs-input" placeholder="vitaliia.bilaniuk@perfectial.com" value={this.state.value} onChange={this.handleInputChange} />
           </label>
           { this.state.skypeVisibility ? 
           <label className="sfs-label">
             Skype name
-            <input type="text" className="sfs-input" placeholder="vitaliia.bilaniuk" value={this.state.skype} onChange={this.handleChangeSkype} />
+            <input type="text" name="skype" className="sfs-input" placeholder="vitaliia.bilaniuk" value={this.state.value} onChange={this.handleInputChange} />
           </label>
           : null }
           <label className="sfs-label sfs-label__add">
@@ -166,13 +135,13 @@ class Form extends React.Component {
           { this.state.websiteVisibility ? 
           <label className="sfs-label">
             Custom company website
-            <input type="text" className="sfs-input" placeholder="perfectial.com" value={this.state.website} onChange={this.handleChangeWebsite} />
+            <input type="text" name="website" className="sfs-input" placeholder="perfectial.com" value={this.state.value} onChange={this.handleInputChange} />
           </label>
           : null }
           { this.state.afterwordVisibility ? 
           <label className="sfs-label">
             Custom Afterword
-            <input type="text" className="sfs-input" placeholder="Thanks" value={this.state.afterword} onChange={this.handleChangeAfterword} />
+            <input type="text" name="afterword" className="sfs-input" placeholder="Thanks" value={this.state.value} onChange={this.handleInputChange} />
           </label>
           : null }
         </form>
