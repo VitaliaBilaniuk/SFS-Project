@@ -1,6 +1,8 @@
 import React from 'react';
 import PhoneInput from 'react-phone-number-input';
 import AddImg from './assets/icon-add.svg'; 
+import InputItem from './InputItem.jsx'
+import CheckboxItem from './CheckboxItem.jsx'
 import './sidePannel.scss';
 import './PhoneForm.scss';
 
@@ -8,6 +10,12 @@ class Form extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
+        name: '',
+        email: '',
+        position: '',
+        skype: '',
+        website: '',
+        afterword: '',
         websiteVisibility: false,
         afterwordVisibility: false,
         skypeVisibility: true,
@@ -15,17 +23,15 @@ class Form extends React.Component {
         secondPhone: false,
       };
       this.handleChangePhone = this.handleChangePhone.bind(this);
-      this.handleWebsiteInputToggle = this.handleWebsiteInputToggle.bind(this);
-      this.handleAfterwordInputToggle = this.handleAfterwordInputToggle.bind(this);
-      this.handleSkypeInputToggle = this.handleSkypeInputToggle.bind(this);
-      this.handleInputAdd = this.handleInputAdd.bind(this);
-      this.handleInputRemove = this.handleInputRemove.bind(this);
+      this.handleAInputToggle = this.handleInputToggle.bind(this);
+      this.handleAdditionalInput = this.handleAdditionalInput.bind(this);
       this.handleInputChange = this.handleInputChange.bind(this);
+      this.renderInputs = this.renderInputs.bind(this);
+      this.renderCheckboxes = this.renderCheckboxes.bind(this);
     }
   
     handleInputChange(e) {
-      this.setState({[e.name]: e.target.value});
-      console.log('A name was submitted: '+ e.target.value);
+      this.setState({[e.target.name]: e.target.value});
     }
 
     handleChangePhone(value) {
@@ -41,67 +47,68 @@ class Form extends React.Component {
       }
     }
 
-    handleChangeAfterword(event) {
-      this.setState({afterword: event.target.value});
-      console.log('Skype was submitted: ' + this.state.afterword);
-    }
-
-    handleWebsiteInputToggle() {
+    handleInputToggle(prop) {
       this.setState({
-        websiteVisibility: !this.state.websiteVisibility
+        [prop]: !this.state[prop]
       });
     }
 
-    handleAfterwordInputToggle() {
-      this.setState({
-        afterwordVisibility: !this.state.afterwordVisibility
-      });
-    }
-
-    handleSkypeInputToggle() {
-      this.setState({
-        skypeVisibility: !this.state.skypeVisibility
-      });
-    }
-
-    handleInputAdd(e) {
+    handleAdditionalInput(param, e) {
       e.preventDefault();
       this.setState({
-        secondPhone: true
+        secondPhone: param
       });
     }
 
-    handleInputRemove(e) {
-      e.preventDefault();
-      this.setState({
-        secondPhone: false
-      });
+    renderInputs (inputProps) {
+      return (inputProps.map((inputProp) => {
+        if (inputProp.visibility) {
+          return (<InputItem
+            key={inputProp.name} 
+            title={inputProp.title} 
+            type={inputProp.text} 
+            name={inputProp.name} 
+            placeholder={inputProp.placeholder}
+            value={this.state.value}
+            onChange={this.handleInputChange}/>) 
+        }
+      }));
     }
 
+    renderCheckboxes () {
+      const checkboxProps = [
+        {visibilityProps: 'websiteVisibility', name: 'website', value: 'website', label: 'Customize company website'},
+        {visibilityProps: 'afterwordVisibility', name: 'afterword', value: 'afterword', label: 'Customize afterword'},
+        {visibilityProps: 'skypeVisibility', name: 'skype', value: 'skype', label: 'Disable skype field'}
+      ];
+
+      return (checkboxProps.map((checkboxProp) => {
+          return (<CheckboxItem
+            key={checkboxProp.name} 
+            visibilityProps={checkboxProp.visibilityProps}
+            propsOnChange={this.handleInputToggle}
+            name={checkboxProp.name} 
+            value={checkboxProp.value}
+            label={checkboxProp.label}/>) 
+      }));
+    }
     render() {
+      const remove = false;
+      const add = true;
+      const inputPropsTop = [
+        {title: 'Full Name', type: 'text', name: "name", placeholder: "John Doe", visibility: true},
+        {title: 'Position', type: 'text', name: "position", placeholder: "ui engineer", visibility: true},
+        {title: 'Email', type: 'email', name: "email", placeholder: "vitaliia.bilaniuk@perfectial.com", visibility: true},
+        {title: 'Skype name', type: 'text', name: "skype", placeholder: "vitaliia.bilaniuk", visibility: this.state.skypeVisibility}];
+      const inputPropsBottom = [
+        {title: 'Custom company website', type: 'text', name: "website", placeholder: "perfectial.com", visibility: this.state.websiteVisibility},
+        {title: 'Custom Afterword', type: 'text', name: "afterword", placeholder: "Thanks", visibility: this.state.afterwordVisibility}]; 
       return (
-        <form>     
-          <label className="sfs-label">
-            Full Namethis.state.name
-            <input type="text" className="sfs-input" name="name" placeholder="John Doe" value={this.state.value} onChange={this.handleInputChange} />
-          </label>
-          <label className="sfs-label">
-            Position
-            <input type="text" className="sfs-input" name="position" placeholder="ui engineer" value={this.state.value} onChange={this.handleInputChange} />
-          </label>
-          <label className="sfs-label">
-            Email
-            <input type="email" name="email" className="sfs-input" placeholder="vitaliia.bilaniuk@perfectial.com" value={this.state.value} onChange={this.handleInputChange} />
-          </label>
-          { this.state.skypeVisibility ? 
-          <label className="sfs-label">
-            Skype name
-            <input type="text" name="skype" className="sfs-input" placeholder="vitaliia.bilaniuk" value={this.state.value} onChange={this.handleInputChange} />
-          </label>
-          : null }
+        <form>
+          {this.renderInputs(inputPropsTop)} 
           <label className="sfs-label sfs-label__add">
           { this.state.addButtonVisibility ? 
-          <button onClick={this.handleInputAdd} className="sfs-button__add"><img src={AddImg}/></button>
+          <button onClick={ this.handleAdditionalInput(add)} className="sfs-button__add"><img src={AddImg}/></button>
           : null }
           Phone number</label>
           <PhoneInput
@@ -112,7 +119,7 @@ class Form extends React.Component {
           { this.state.secondPhone ? 
             <div>
               <label className="sfs-label sfs-label__add">
-                <button onClick={this.handleInputRemove} className="sfs-button__add sfs-button__remove"><img src={AddImg}/></button>
+                <button onClick={() => {this.handleAdditionalInput(remove)}} className="sfs-button__add sfs-button__remove"><img src={AddImg}/></button>
                 Mobile
               </label>
               <PhoneInput
@@ -123,27 +130,8 @@ class Form extends React.Component {
             </div>
           : null } 
           <h2 className="sfs-sidebar__subtitle">Customize Fields:</h2>
-          <label className="sfs-checkbox-label">
-            <input type="checkbox" defaultChecked={this.state.websiteVisibility} onChange={this.handleWebsiteInputToggle} className="sfs-checkbox-label__input" name="website" value="website"/> Customize company website
-          </label>
-          <label className="sfs-checkbox-label">
-            <input type="checkbox" defaultChecked={this.state.afterwordVisibility} onChange={this.handleAfterwordInputToggle} className="sfs-checkbox-label__input" name="afterword" value="afterword"/> Customize afterword 
-          </label>
-          <label className="sfs-checkbox-label">
-            <input type="checkbox" onChange={this.handleSkypeInputToggle} className="sfs-checkbox-label__input" name="skype" value="skype"/> Disable skype field
-          </label>
-          { this.state.websiteVisibility ? 
-          <label className="sfs-label">
-            Custom company website
-            <input type="text" name="website" className="sfs-input" placeholder="perfectial.com" value={this.state.value} onChange={this.handleInputChange} />
-          </label>
-          : null }
-          { this.state.afterwordVisibility ? 
-          <label className="sfs-label">
-            Custom Afterword
-            <input type="text" name="afterword" className="sfs-input" placeholder="Thanks" value={this.state.value} onChange={this.handleInputChange} />
-          </label>
-          : null }
+          {this.renderCheckboxes()} 
+          {this.renderInputs(inputPropsBottom)} 
         </form>
       );
     }
