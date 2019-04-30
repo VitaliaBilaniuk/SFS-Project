@@ -23,7 +23,7 @@ class Form extends React.Component {
         secondPhone: false,
       };
       this.handleChangePhone = this.handleChangePhone.bind(this);
-      this.handleAInputToggle = this.handleInputToggle.bind(this);
+      this.handleInputToggle = this.handleInputToggle.bind(this);
       this.handleAdditionalInput = this.handleAdditionalInput.bind(this);
       this.handleInputChange = this.handleInputChange.bind(this);
       this.renderInputs = this.renderInputs.bind(this);
@@ -93,8 +93,6 @@ class Form extends React.Component {
       }));
     }
     render() {
-      const remove = false;
-      const add = true;
       const inputPropsTop = [
         {title: 'Full Name', type: 'text', name: "name", placeholder: "John Doe", visibility: true},
         {title: 'Position', type: 'text', name: "position", placeholder: "ui engineer", visibility: true},
@@ -108,7 +106,7 @@ class Form extends React.Component {
           {this.renderInputs(inputPropsTop)} 
           <label className="sfs-label sfs-label__add">
           { this.state.addButtonVisibility ? 
-          <button onClick={ this.handleAdditionalInput(add)} className="sfs-button__add"><img src={AddImg}/></button>
+          <button onClick={(e) => this.handleAdditionalInput(true, e)} className="sfs-button__add"><img src={AddImg}/></button>
           : null }
           Phone number</label>
           <PhoneInput
@@ -119,7 +117,7 @@ class Form extends React.Component {
           { this.state.secondPhone ? 
             <div>
               <label className="sfs-label sfs-label__add">
-                <button onClick={() => {this.handleAdditionalInput(remove)}} className="sfs-button__add sfs-button__remove"><img src={AddImg}/></button>
+                <button onClick={(e) => {this.handleAdditionalInput(false, e)}} className="sfs-button__add sfs-button__remove"><img src={AddImg}/></button>
                 Mobile
               </label>
               <PhoneInput
