@@ -1,17 +1,17 @@
 .sfs-header {
-    position: absolute;
+    position: relative;
     top: 0;
     width: 100%;
     box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.1);
     background-color: #111023;
-    padding: 15px;
-    .sfs-header__img {
+    padding: 7px 15px;
+    &__img {
         height: 40px;
     }
-    .sfs-header__capture {
+    &__capture {
         border-left: 1px solid white;
         padding: 0 0 0 10px;
-        font-size: 32px;
+        font-size: 40px;
         font-weight: 300;
         color: white;
         vertical-align: bottom;

@@ -4,5 +4,9 @@
         "modules": false
       }]
     ],
-    "plugins": ["syntax-dynamic-import"]
+    "plugins": [
+      "syntax-dynamic-import",
+      "@babel/plugin-proposal-class-properties" ,
+      "@babel/transform-runtime"
+    ]
   }
