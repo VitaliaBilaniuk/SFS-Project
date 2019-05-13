@@ -6,6 +6,7 @@ module.exports = {
   entry: {   app: './src/index.js'},
   output: {
     filename: '[name].bundle.js',
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -35,6 +36,9 @@ module.exports = {
         ],
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
