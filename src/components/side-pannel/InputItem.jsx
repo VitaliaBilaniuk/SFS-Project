@@ -5,7 +5,7 @@ const InputItem = (props) => {
     return (
         <label className="sfs-label">
             {props.title}
-            <input type={props.type} name={props.name} className="sfs-input" placeholder={props.placeholder} value={props.value} onChange={props.onchange} />
+            <input type={props.type} name={props.name} className="sfs-input" placeholder={props.placeholder} value={props.value} onChange={props.onChange} />
         </label>
     )
 }
