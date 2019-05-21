@@ -28,7 +28,7 @@ class ImageUpload extends PureComponent {
   };
 
   handleImitateClick = () => {
-    var inputField = this.fileField.current;
+    let inputField = this.fileField.current;
     inputField.click();
   }
 
