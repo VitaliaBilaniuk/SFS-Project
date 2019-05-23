@@ -6,37 +6,31 @@ class Tab1 extends React.Component {
 
     constructor(props) {
       super(props);
+      this.state = {};
       this.propsGet = this.propsGet.bind(this);
-      this.state = { copySuccess: '' };
-      this.copyArea = React.createRef();
     }
 
     propsGet() {
-        const NameValue = Global.getNameValue();
-        this.setState({NameValue});
+        const inputValues = Global.getAllValues();
+        this.setState({...inputValues});
     }
-
-    copyToClipboard = (e) => {
-        let copyArea = this.copyArea.current;
-        copyArea.select();
-        document.execCommand('copy');
-        this.setState({ copySuccess: 'Copied!' });
-    };
     
     render() {
         return (
         <div>
-            <div className="sfs-area-copied" ref={this.copyArea}>
+            <div className="sfs-area-copied">
                 Thanks,
-                { this.state ? <p>{this.state.NameValue}</p>
+                { this.state.name ? <p>{this.state.name}</p>
                 : <p>Johny Doe </p> }  
-                { this.state ? <p>{this.state.PositionValue}</p>
-                : <p>UI Engineer </p> }  
+                { this.state.position ? <p>{this.state.position}</p>
+                : <p>UI Engineer </p> } 
+                <p>skype: { this.state.skype ? <span>{this.state.skype}</span>
+                : <span>vitaliia.bilaniuk </span> } </p>
+                <p>website: { this.state.website ? <span>{this.state.website}</span>
+                : <span>perfectial.com</span> } </p>
                 <img src={PerfLogo} className="sfs-full-logo"/>
             </div>
             <button onClick={this.propsGet}>Click to insert your values</button>
-            <button onClick={this.copyToClipboard}>Copy</button> 
-            {this.state.copySuccess}
         </div>
         );
     }
