@@ -1,12 +1,15 @@
 import React from 'react';
 import Global from '../params/Global.jsx';
 import PerfLogo from './assets/logo-colored.svg';
+import CopyToClipboard from 'react-copy-html-to-clipboard';
 
 class Tab1 extends React.Component {
 
     constructor(props) {
       super(props);
-      this.state = {};
+      this.state = {
+        copied: false
+      };
       this.propsGet = this.propsGet.bind(this);
     }
 
@@ -19,7 +22,6 @@ class Tab1 extends React.Component {
         return (
         <div>
             <div className="sfs-area-copied">
-                Thanks,
                 { this.state.name ? <p>{this.state.name}</p>
                 : <p>Johny Doe </p> }  
                 { this.state.position ? <p>{this.state.position}</p>
@@ -31,6 +33,12 @@ class Tab1 extends React.Component {
                 <img src={PerfLogo} className="sfs-full-logo"/>
             </div>
             <button onClick={this.propsGet}>Click to insert your values</button>
+            <div>
+            <CopyToClipboard text={<img src={PerfLogo} className="sfs-full-logo"/>}
+                onCopy={() => this.setState({copied: true})}>
+                <button>Copy to clipboard with button</button>
+            </CopyToClipboard>
+            </div>
         </div>
         );
     }
