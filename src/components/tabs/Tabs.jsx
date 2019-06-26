@@ -6,6 +6,7 @@ import {
   NavLink
 } from 'react-router-dom';
 import MailLogo from './assets/emailSignature.svg';
+import PassCard from './assets/passCard.svg';
 import Tab1 from './Tab1.jsx';
 import Tab2 from './Tab2.jsx';
 import Tab3 from './Tab3.jsx';
@@ -21,7 +22,9 @@ const Tabs = ({Global}) => (
             <img src={MailLogo} className="sfs-nav-img"/>
             Email signature
           </NavLink>
-          <NavLink to ="/tab2">Tab 2</NavLink>
+          <NavLink to ="/tab2">
+          <img src={PassCard} className="sfs-nav-img"/>
+          Pass Card</NavLink>
           <NavLink to ="/tab3">Tab 3</NavLink>
         </div>
         <Switch>

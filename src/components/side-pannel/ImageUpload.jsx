@@ -1,7 +1,7 @@
 import React from 'react';
 import { PureComponent } from 'react';
 import ImageCrop from './ImageCrop.jsx';
-import ReactCrop from 'react-image-crop';
+import Global from '../params/Global.jsx'
 import ProfileImg from './assets/male-new.svg';
 import './ImageUpload.scss';
 
@@ -34,6 +34,7 @@ class ImageUpload extends PureComponent {
 
   getPropsFromChild = (croppedImageUrl) => {
     this.setState({ croppedImageUrl });
+    Global.setImageSrc(croppedImageUrl);
   }
 
   handleCropSave = () => {

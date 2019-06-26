@@ -1,9 +1,9 @@
 import React from 'react';
 import PhoneInput from 'react-phone-number-input';
 import AddImg from './assets/icon-add.svg'; 
-import InputItem from './InputItem.jsx'
-import Global from '../params/Global.jsx'
-import CheckboxItem from './CheckboxItem.jsx'
+import InputItem from './InputItem.jsx';
+import Global from '../params/Global.jsx';
+import CheckboxItem from './CheckboxItem.jsx';
 import './sidePannel.scss';
 import './PhoneForm.scss';
 
