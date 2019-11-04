@@ -4,7 +4,7 @@ $drag-bar-size: 6px !default;
 @import "~react-image-crop/lib/ReactCrop.scss";
 
 .sfs-sidebar {
-    max-width: 395px;
+    width: 395px;
     overflow: hidden;
     overflow-y: auto;
     height: calc(100vh - 100px);
@@ -53,7 +53,7 @@ $drag-bar-size: 6px !default;
         font-family: "Open Sans", sans-serif;
         font-size: 18px;
         line-height: 24px;
-        color: rgba(17, 17, 35, 0.3);
+        color: #111123;
         outline: none;
     }
     &__subtitle {

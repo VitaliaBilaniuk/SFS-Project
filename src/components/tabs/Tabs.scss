@@ -1,0 +1,29 @@
+.sfs-tabs {
+    width: 100%;
+    .sfs-nav {
+        display: flex;
+        border-bottom: 1px solid #111123;
+        a {
+            min-width: 210px;
+            padding: 18px;
+            display: inline-flex;
+            cursor: pointer;
+            font-family: "Open Sans", sans-serif;
+            font-size: 14px;
+            color: #111123;
+            align-items: center;
+            text-decoration: none;
+            img {
+                margin-right: 10px;
+                height: 10px;
+            }
+            &.active, &:hover {
+                box-shadow: inset 0px 0px 0px 0px #fff, inset 0px -2px 0px 0px #000;
+            }
+        }
+    }
+    .sfs-full-logo {
+        width: 200px;
+        display: block;
+    }
+}

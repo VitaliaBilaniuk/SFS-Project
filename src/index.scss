@@ -13,4 +13,8 @@ body {
     -webkit-font-feature-settings: 'liga' on;
     font-feature-settings: 'liga' on;
     -webkit-text-size-adjust: 100%;
+    .sfs-row {
+        display: flex;
+        flex-direction: row;
+    }
 }
