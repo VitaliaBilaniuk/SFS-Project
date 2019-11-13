@@ -1,10 +1,14 @@
 import ReactDOM from 'react-dom';
 import './index.scss';
 import React from 'react';
+import { Provider } from "react-redux";
+import configureStore from "./js/store/index.js";
 import Header from './components/header/Header';
 import SidePannel from './components/side-pannel/SidePannel';
 import Tabs from './components/tabs/Tabs';
 import Global from './components/params/Global';
+
+const store = configureStore();
 
 const App = () => (
     <div>
@@ -17,4 +21,10 @@ const App = () => (
 );
   
 export default App;
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
