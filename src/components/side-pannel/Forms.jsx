@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PhoneInput from 'react-phone-number-input';
 import AddImg from './assets/icon-add.svg'; 
 import InputItem from './InputItem.jsx';
 import Global from '../params/Global.jsx';
+import { reduxForm, Field } from 'redux-form';
 import CheckboxItem from './CheckboxItem.jsx';
+import {setFormData, getFormData} from '../../js/actions'
 import './sidePannel.scss';
 import './PhoneForm.scss';
 
@@ -11,12 +14,6 @@ class Form extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        name: '',
-        email: '',
-        position: '',
-        skype: '',
-        website: '',
-        afterword: '',
         websiteVisibility: false,
         afterwordVisibility: false,
         skypeVisibility: true,
@@ -30,7 +27,9 @@ class Form extends React.Component {
       this.renderInputs = this.renderInputs.bind(this);
       this.renderCheckboxes = this.renderCheckboxes.bind(this);
     }
-  
+    componentDidMount() {
+      console.log(this.props);
+    }
     handleInputChange(e) {
       const {name, value} = e.target;
       Global.setValue(name, value);
@@ -72,7 +71,7 @@ class Form extends React.Component {
             type={inputProp.text} 
             name={inputProp.name} 
             placeholder={inputProp.placeholder}
-            value={this.state.value}
+            value={this.props.form[inputProp.name]}
             onChange={this.handleInputChange}/>) 
         }
       }));
@@ -137,5 +136,6 @@ class Form extends React.Component {
       );
     }
   }
-  
-export default Form;
+  const mapStateToProps = ({ form }) => ({ form });
+
+export default connect(mapStateToProps, { setFormData, getFormData})(Form);
