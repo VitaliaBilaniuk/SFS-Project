@@ -32,8 +32,7 @@ class Form extends React.Component {
     }
     handleInputChange(e) {
       const {name, value} = e.target;
-      Global.setValue(name, value);
-      this.setState({[name]: value});
+      this.props.setFormData(name, value);
     }
 
     handleChangePhone(value) {
