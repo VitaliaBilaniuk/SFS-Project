@@ -1,7 +1,5 @@
 import React from 'react';
-import Global from '../params/Global.jsx';
 import PerfLogo from './assets/logo-colored.svg';
-import CopyToClipboard from 'react-copy-html-to-clipboard';
 import { connect } from 'react-redux';
 
 class Tab1 extends React.Component {
@@ -11,12 +9,6 @@ class Tab1 extends React.Component {
       this.state = {
         copied: false
       };
-      this.propsGet = this.propsGet.bind(this);
-    }
-
-    propsGet() {
-        const inputValues = Global.getAllValues();
-        this.setState({...inputValues});
     }
     
     render() {
@@ -34,12 +26,7 @@ class Tab1 extends React.Component {
                 : <span>perfectial.com</span> } </p>
                 <img src={PerfLogo} className="sfs-full-logo"/>
             </div>
-            <button onClick={this.propsGet}>Click to insert your values</button>
             <div>
-            <CopyToClipboard text={<img src={PerfLogo} className="sfs-full-logo"/>}
-                onCopy={() => this.setState({copied: true})}>
-                <button>Copy to clipboard with button</button>
-            </CopyToClipboard>
             </div>
         </div>
         );

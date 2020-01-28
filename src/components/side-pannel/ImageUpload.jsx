@@ -1,9 +1,10 @@
 import React from 'react';
 import { PureComponent } from 'react';
 import ImageCrop from './ImageCrop.jsx';
-import Global from '../params/Global.jsx'
 import ProfileImg from './assets/male-new.svg';
 import './ImageUpload.scss';
+import {setFormData, getFormData} from '../../js/actions';
+import { connect } from 'react-redux';
 
 class ImageUpload extends PureComponent {
 
@@ -34,7 +35,7 @@ class ImageUpload extends PureComponent {
 
   getPropsFromChild = (croppedImageUrl) => {
     this.setState({ croppedImageUrl });
-    Global.setImageSrc(croppedImageUrl);
+    this.props.setFormData('src', croppedImageUrl);
   }
 
   handleCropSave = () => {
@@ -63,4 +64,6 @@ class ImageUpload extends PureComponent {
   }
 }
   
-export default ImageUpload;
+const mapStateToProps = ({ form }) => ({ form });
+
+export default connect(mapStateToProps, { setFormData, getFormData})(ImageUpload);

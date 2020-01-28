@@ -6,7 +6,8 @@ const initialState = {
     position: '',
     skype: '',
     website: '',
-    afterword: ''
+    afterword: '',
+    src: ''
 };
 
 
