@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,31 +7,28 @@ import {
 } from 'react-router-dom';
 import MailLogo from './assets/emailSignature.svg';
 import PassCard from './assets/passCard.svg';
-import Tab1 from './Tab1.jsx';
-import Tab2 from './Tab2.jsx';
-import Tab3 from './Tab3.jsx';
 import './Tabs.scss';
-import Global from '../params/Global';
 
-const Tabs = ({Global}) => (
+const Tab1 = lazy(() => import('./Tab1.jsx'));
+const Tab2 = lazy(() => import('./Tab2.jsx'));
+const Tab3 = lazy(() => import('./Tab3.jsx'));
+
+const Tabs = () => (
   <div className="sfs-tabs">
     <Router>
       <div>
         <div className="sfs-nav">
-          <NavLink exact to ="/">
-            <img src={MailLogo} className="sfs-nav-img"/>
-            Email signature
-          </NavLink>
-          <NavLink to ="/tab2">
-          <img src={PassCard} className="sfs-nav-img"/>
-          Pass Card</NavLink>
+          <NavLink exact to ="/"><img src={MailLogo} className="sfs-nav-img"/>Email signature</NavLink>
+          <NavLink to ="/tab2"><img src={PassCard} className="sfs-nav-img"/>Pass Card</NavLink>
           <NavLink to ="/tab3">Tab 3</NavLink>
         </div>
-        <Switch>
-          <Route path="/tab2" component={Tab2} />
-          <Route path="/tab3" component={Tab3} />
-          <Route path="" component={()=> <Tab1 Global={Global}/>}/>}/>
-        </Switch>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            <Route path="/tab2" component={Tab2} />
+            <Route path="/tab3" component={Tab3} />
+            <Route path="" component={Tab1}/>
+          </Switch>
+        </Suspense>
       </div>
     </Router>
   </div>
