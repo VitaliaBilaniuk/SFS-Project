@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PhoneInput from 'react-phone-number-input';
 import AddImg from './assets/icon-add.svg'; 
 import InputItem from './InputItem.jsx';
-import Global from '../params/Global.jsx';
+import { reduxForm, Field } from 'redux-form';
 import CheckboxItem from './CheckboxItem.jsx';
+import {setFormData, getFormData} from '../../js/actions'
 import './sidePannel.scss';
 import './PhoneForm.scss';
 
@@ -11,33 +13,20 @@ class Form extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        name: '',
-        email: '',
-        position: '',
-        skype: '',
-        website: '',
-        afterword: '',
         websiteVisibility: false,
         afterwordVisibility: false,
         skypeVisibility: true,
         addButtonVisibility: false,
         secondPhone: false,
       };
-      this.handleChangePhone = this.handleChangePhone.bind(this);
-      this.handleInputToggle = this.handleInputToggle.bind(this);
-      this.handleAdditionalInput = this.handleAdditionalInput.bind(this);
-      this.handleInputChange = this.handleInputChange.bind(this);
-      this.renderInputs = this.renderInputs.bind(this);
-      this.renderCheckboxes = this.renderCheckboxes.bind(this);
-    }
-  
-    handleInputChange(e) {
-      const {name, value} = e.target;
-      Global.setValue(name, value);
-      this.setState({[name]: value});
     }
 
-    handleChangePhone(value) {
+    handleInputChange = (e) => {
+      const {name, value} = e.target;
+      this.props.setFormData(name, value);
+    }
+
+    handleChangePhone = (value) => {
       if (value.length >= 8 ) {
         this.setState({
           addButtonVisibility: true
@@ -50,20 +39,20 @@ class Form extends React.Component {
       }
     }
 
-    handleInputToggle(prop) {
+    handleInputToggle = (prop) => {
       this.setState({
         [prop]: !this.state[prop]
       });
     }
 
-    handleAdditionalInput(param, e) {
+    handleAdditionalInput = (param, e) => {
       e.preventDefault();
       this.setState({
         secondPhone: param
       });
     }
 
-    renderInputs (inputProps) {
+    renderInputs = (inputProps) => {
       return (inputProps.map((inputProp) => {
         if (inputProp.visibility) {
           return (<InputItem
@@ -72,13 +61,13 @@ class Form extends React.Component {
             type={inputProp.text} 
             name={inputProp.name} 
             placeholder={inputProp.placeholder}
-            value={this.state.value}
+            value={this.props.form[inputProp.name]}
             onChange={this.handleInputChange}/>) 
         }
       }));
     }
 
-    renderCheckboxes () {
+    renderCheckboxes = () => {
       const checkboxProps = [
         {visibilityProps: 'websiteVisibility', name: 'website', value: 'website', label: 'Customize company website'},
         {visibilityProps: 'afterwordVisibility', name: 'afterword', value: 'afterword', label: 'Customize afterword'},
@@ -137,5 +126,6 @@ class Form extends React.Component {
       );
     }
   }
-  
-export default Form;
+  const mapStateToProps = ({ form }) => ({ form });
+
+export default connect(mapStateToProps, { setFormData, getFormData})(Form);

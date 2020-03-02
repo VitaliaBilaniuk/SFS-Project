@@ -1,5 +1,5 @@
 import React from 'react';
-import Global from '../params/Global.jsx';
+import { connect } from 'react-redux';
 import ProfileImg from '../side-pannel/assets/male-new.svg';
 
 class Tab2 extends React.Component {
@@ -9,34 +9,27 @@ class Tab2 extends React.Component {
       this.state = {
         copied: false
       };
-      this.propsGet = this.propsGet.bind(this);
-    }
-
-    propsGet() {
-        const inputValues = Global.getAllValues();
-        this.setState({...inputValues});
-        const croppedImageUrl = Global.getImageSrc();
-        this.setState({croppedImageUrl});
     }
     
     render() {
-        console.log(this.state.croppedImageUrl);
+        const { form } = this.props;
         return (
         <div>
             <div>
-            <img alt="sdsds" className="sfs-select__image" 
+            <img alt="profile-photo" className="sfs-select__image" 
                 style={{ maxWidth: '100%' }}                
-                src= {this.state.croppedImageUrl ? this.state.croppedImageUrl : ProfileImg }       
+                src= {form.src ? form.src : ProfileImg }       
             />  
-                { this.state.name ? <p>{this.state.name}</p>
+                { form.name ? <p>{form.name}</p>
                 : <p>Johny Doe </p> }  
                 
             </div>
-            <button onClick={this.propsGet}>Click to insert your values</button>
         </div>
         );
     }
 }
 
-export default Tab2;
+const mapStateToProps = ({ form }) => ({ form });
+
+export default connect(mapStateToProps, {})(Tab2);
 
