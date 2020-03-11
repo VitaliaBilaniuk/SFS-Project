@@ -5,7 +5,7 @@ import Intro from './intro';
 const App = () => {
   <Router>
       <React.StrictMode>
-        <Route path="/" exact component={Intro} />
+        <Route exact path="/" render={() => <Intro/>} />
       </React.StrictMode>
   </Router>
 };

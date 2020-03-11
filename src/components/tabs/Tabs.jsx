@@ -24,9 +24,9 @@ const Tabs = () => (
         </div>
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
-            <Route path="/tab2" component={Tab2} />
-            <Route path="/tab3" component={Tab3} />
-            <Route path="" component={Tab1}/>
+            <Route path="/tab2" render={() =><Tab2/>} />
+            <Route path="/tab3" render={() =><Tab3/>} />
+            <Route path="" render={() =><Tab1/>}/>
           </Switch>
         </Suspense>
       </div>

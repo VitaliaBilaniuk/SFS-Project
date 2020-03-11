@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PhoneInput from 'react-phone-number-input';
 import AddImg from './assets/icon-add.svg'; 
 import InputItem from './InputItem.jsx';
-import { reduxForm, Field } from 'redux-form';
 import CheckboxItem from './CheckboxItem.jsx';
 import {setFormData, getFormData} from '../../js/actions'
 import './sidePannel.scss';
@@ -27,7 +26,8 @@ class Form extends React.Component {
     }
 
     handleChangePhone = (value) => {
-      if (value.length >= 8 ) {
+      this.props.setFormData('phone', value);
+      if (value && value.length >= 8 ) {
         this.setState({
           addButtonVisibility: true
         });
@@ -105,7 +105,7 @@ class Form extends React.Component {
             className="sfs-input"
             placeholder="(201) 555-0123"
             value={ this.state.phone }
-            onChange={  this.handleChangePhone} />
+            onChange={ this.handleChangePhone } />
           { this.state.secondPhone ? 
             <div>
               <label className="sfs-label sfs-label__add">
@@ -116,7 +116,7 @@ class Form extends React.Component {
               className="sfs-input"
               placeholder="(201) 555-0123"
               value={ this.state.mobile }
-              onChange={ mobile => this.setState({ mobile }) } />
+              onChange={ value => this.props.setFormData('mobile', value) } />
             </div>
           : null } 
           <h2 className="sfs-sidebar__subtitle">Customize Fields:</h2>
