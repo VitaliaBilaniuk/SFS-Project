@@ -30,5 +30,21 @@
 .sfs-printed-card {
     border: 1px solid black;
     padding: 20px;
-    margin: 20px 0;
+    margin: 20px 20px 20px 0;
 }
+@media print {
+    @page {
+      size: landscape;
+    }
+    body * {
+      visibility: hidden;
+    }
+    .section-to-print, .section-to-print * {
+      visibility: visible;
+    }
+    .section-to-print {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
