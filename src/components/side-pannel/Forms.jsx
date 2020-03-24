@@ -7,7 +7,6 @@ import CheckboxItem from './CheckboxItem.jsx';
 import {setFormData, getFormData} from '../../js/actions'
 import './sidePannel.scss';
 import './PhoneForm.scss';
-import { chownSync } from 'fs';
 
 class Form extends React.Component {
     constructor(props) {
@@ -18,6 +17,7 @@ class Form extends React.Component {
         skypeVisibility: true,
         addButtonVisibility: false,
         secondPhone: false,
+        minNumberLength: 8,
       };
     }
 
@@ -27,9 +27,8 @@ class Form extends React.Component {
     }
 
     handleChangePhone = (value) => {
-      const minNumberLength = 8;
       this.props.setFormData('phone', value);
-      if (value && value.length >= minNumberLength ) {
+      if (value && value.length >= this.state.minNumberLength ) {
         this.setState({
           addButtonVisibility: true
         });
