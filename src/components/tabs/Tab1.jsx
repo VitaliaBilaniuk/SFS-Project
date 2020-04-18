@@ -6,11 +6,21 @@ class Tab1 extends React.Component {
 
     constructor(props) {
       super(props);
-      this.state = {
-        copied: false,
-        showCompactVersion: true
-      };
+      this.state = { copySuccess: '' }
     }
+    
+    copyToClipboard = (e) => {
+      let selected = document.getElementById('signature');
+      let selection = document.getSelection();
+      let range = document.createRange();
+      range.selectNode(selected);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand('copy')
+      selection.removeAllRanges();
+      this.setState({ copySuccess: 'Copied!' });
+    };
+
     
     handleToggleChange = () => {
       this.setState({
@@ -22,8 +32,7 @@ class Tab1 extends React.Component {
         const { form } = this.props;
         return (
         <div>
-          
-          <div className="sfs-area-copied">
+          <div id="signature" className="sfs-area-copied">
             Thanks
             { form.name ? <p>{form.name}</p>
             : <p>Johny Doe </p> }  
@@ -58,6 +67,10 @@ class Tab1 extends React.Component {
             />
             <span className="slider round"></span>
           </label>
+          <div>
+            <button onClick={this.copyToClipboard}>Copy to clipboard</button> 
+            {this.state.copySuccess}
+          </div>
         </div>
         );
     }
