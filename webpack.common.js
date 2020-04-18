@@ -1,6 +1,9 @@
-const path = require('path')
+const path = require('path');
+const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {   app: './src/index.js'},
@@ -11,6 +14,28 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(css|scss)$/,
+        exclude: /node_modules/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use:  [
+            {
+              loader: 'css-loader'
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: [
+                  autoprefixer()
+                ],
+                sourceMap: true
+              }
+            },
+            'sass-loader'
+          ]
+        })
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
@@ -37,9 +62,6 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    historyApiFallback: true,
-  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
@@ -47,6 +69,8 @@ module.exports = {
       template : __dirname + '/src/index.html',
       filename : 'index.html',
       inject : 'body'
-    })
+    }),
+    new ExtractTextPlugin('style.css'),
+    new webpack.HotModuleReplacementPlugin()
   ],
 }
