@@ -10,7 +10,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     publicPath: '/',
-    path: path.resolve(__dirname, 'dist')
+    path: path.join(__dirname, 'dist')
   },
   module: {
     rules: [
@@ -68,6 +68,7 @@ module.exports = {
       title: 'SFS Email Signature Generator',
       template : __dirname + '/src/index.html',
       filename : 'index.html',
+      favicon: "./src/favicon.ico",
       inject : 'body'
     }),
     new ExtractTextPlugin('style.css'),
