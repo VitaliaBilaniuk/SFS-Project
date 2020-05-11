@@ -19,7 +19,7 @@ class Tab3 extends React.Component {
               email = form.email || 'yourmail@perfectial.com',
               phone = form.phone || '+38 (093) 123 45 47',
               mobile = form.mobile || '',
-              skype = form.skype || 'skypename',
+              skype = form.skype || '',
               qrCodeSrc =  `https://qrickit.com/api/qr.php?d=BEGIN%3aVCARD%0d%0a`+
               `VERSION%3a3.0%0d%0aN%3a${name}%0d%0aORG%3a${company}%0d%0aTITLE%3a${position}%0d%0a`+
               `EMAIL%3a${email}%0d%0aTEL%3bTYPE%3dCELL%3a${phone}%0d%0aTEL%3bTYPE%3dWORK%2c`+

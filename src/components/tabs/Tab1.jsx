@@ -10,9 +10,9 @@ class Tab1 extends React.Component {
     }
     
     copyToClipboard = (e) => {
-      let selected = document.getElementById('signature');
-      let selection = document.getSelection();
-      let range = document.createRange();
+      const selected = document.getElementById('signature');
+      const selection = document.getSelection();
+      const range = document.createRange();
       range.selectNode(selected);
       selection.removeAllRanges();
       selection.addRange(range);
