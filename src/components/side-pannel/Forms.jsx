@@ -17,6 +17,7 @@ class Form extends React.Component {
         skypeVisibility: true,
         addButtonVisibility: false,
         secondPhone: false,
+        minNumberLength: 8,
       };
     }
 
@@ -27,7 +28,7 @@ class Form extends React.Component {
 
     handleChangePhone = (value) => {
       this.props.setFormData('phone', value);
-      if (value && value.length >= 8 ) {
+      if (value && value.length >= this.state.minNumberLength ) {
         this.setState({
           addButtonVisibility: true
         });
