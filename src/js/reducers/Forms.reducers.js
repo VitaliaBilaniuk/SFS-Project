@@ -5,6 +5,8 @@ const initialState = {
     email: '',
     position: '',
     skype: '',
+    phone: '',
+    mobile: '',
     website: '',
     afterword: '',
     src: ''
