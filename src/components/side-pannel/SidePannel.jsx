@@ -2,11 +2,12 @@ import React from 'react';
 import './sidePannel.scss';
 import Form from './Forms.jsx';
 import ImageUpload from './ImageUpload.jsx';
+import '../../atomic/atomic.scss';
 
 const SidePannel = () => (
-  <aside className="sfs-sidebar">
-    <div className="sfs-sidebar__container">
-      <h1 className="sfs-sidebar__title">Employee Details</h1>
+  <aside className="sfs-sidebar W(395) Ovy(a) H(100vh-55) Fxs(0)">
+    <div className="P(20) Pt(0)">
+      <h1 className="Fz(32) Fw(300) Lh(1)">Employee Details</h1>
       <ImageUpload />
       <Form />
     </div>

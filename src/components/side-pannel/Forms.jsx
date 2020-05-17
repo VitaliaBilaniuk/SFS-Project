@@ -8,6 +8,7 @@ import CheckboxItem from './CheckboxItem.jsx';
 import {setFormData, getFormData} from '../../js/actions'
 import './sidePannel.scss';
 import './PhoneForm.scss';
+import '../../atomic/atomic.scss';
 
 class Form extends React.Component {
     constructor(props) {

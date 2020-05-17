@@ -1,0 +1,127 @@
+.D\(f\) {
+    display: flex;
+}
+.Fxs\(0\) {
+    flex-shrink: 0;
+}
+.Pos\(r\) {
+    position: relative;
+}
+.Pos\(a\) {
+    position: absolute;
+}
+.P\(0\) {
+    padding: 0;
+}
+.P\(10\) {
+    padding: 10px;
+}
+.P\(20\) {
+    padding: 20px;
+}
+.Pt\(0\) {
+    padding-top: 0;
+}
+.M\(5\) {
+    margin: 5px;
+}
+.W\(100p\) {
+    width: 100%;
+}
+.W\(395\) {
+    width: 395px;
+}
+.H\(100vh\-55\) {
+    height: calc(100vh - 55px);
+}
+.T\(10\) {
+    top: 10px;
+}
+.Start\(10\) {
+    left: 10px;
+}
+.Bd\(n\) {
+    border: none;
+}
+.Bdrs\(0\) {
+    border-radius: 0;
+}
+.Bdbw\(1\) {
+    border-bottom-width: 1px;
+}
+.Bdbs\(s\) {
+    border-bottom-style: solid;
+}
+.Bdbc\(\#dddddd\) {
+    border-bottom-color: #dddddd;
+}
+.Bxsh\(n\) {
+    box-shadow: none;
+}
+.O\(n\) {
+    outline: none;
+}
+.Cur\(t\) {
+    cursor: text;
+}
+.Ov\(h\) {
+    overflow: visible;
+}
+.Ovy\(a\) {
+    overflow-y: auto;
+}
+.Bxz\(bb\) {
+    box-sizing: border-box;
+}
+.Trfo\(0\,-150p\) {
+    transform-origin: 0 -150%;
+}
+.Trs\(300ms\) {
+    transition: 300ms;
+}
+.Pe\(n\) {
+    pointer-events: none;
+}
+.Trs\(300ms\)-ph {
+    &::-webkit-input-placeholder {
+        transition: 300ms;
+    }
+}
+.C\(t\)-ph {
+    &::-webkit-input-placeholder {
+        color: transparent;
+    }
+}
+.C\(\#a9a9a9\)-f-ph {
+    &:focus {
+        &::-webkit-input-placeholder {
+            color: #a9a9a9;
+        }
+    }
+}
+.Scale\(0\.6\)\~label-f {
+    &:focus {
+        & ~ label {
+            transform: scale(0.6);
+        }
+    }
+}
+.Scale\(0\.6\)\~label-v {
+    &:valid {
+        & ~ label {
+            transform: scale(0.6);
+        }
+    }
+}
+.C\(\#607d8b\) {
+    color: #607d8b;
+}
+.Fz\(32\) {
+    font-size: 32px;
+}
+.Fw\(300\) {
+    font-weight: 300;
+}
+.Lh\(1\) {
+    line-height: 1;
+}
