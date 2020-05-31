@@ -1,5 +1,14 @@
+.D\(b\) {
+    display: block;
+}
+.D\(n\) {
+    display: none;
+}
 .D\(f\) {
     display: flex;
+}
+.Ai\(c\) {
+    align-items: center;
 }
 .Fxs\(0\) {
     flex-shrink: 0;
@@ -19,17 +28,55 @@
 .P\(20\) {
     padding: 20px;
 }
+.Py\(10\) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.Pstart\(10\) {
+    padding-left: 10px;
+}
 .Pt\(0\) {
     padding-top: 0;
+}
+.M\(0\) {
+    margin: 0;
 }
 .M\(5\) {
     margin: 5px;
 }
+.Mt\(35\) {
+    margin-top: 35px;
+}
+.Mb\(15\) {
+    margin-bottom: 15px;
+}
+.Mx\(a\) {
+    margin-left: auto;
+    margin-right: auto;
+}
+.Mstart\(15\) {
+    margin-left: 15px;
+}
 .W\(100p\) {
     width: 100%;
 }
+.W\(15\) {
+    width: 15px;
+}
+.W\(100\) {
+    width: 100px;
+}
 .W\(395\) {
     width: 395px;
+}
+.H\(15\) {
+    height: 15px;
+}
+.H\(40\) {
+    height: 40px;
+}
+.H\(100\) {
+    height: 100px;
 }
 .H\(100vh\-55\) {
     height: calc(100vh - 55px);
@@ -37,14 +84,41 @@
 .T\(10\) {
     top: 10px;
 }
+.B\(-15\) {
+    bottom: -15px;
+}
 .Start\(10\) {
     left: 10px;
+}
+.End\(0\) {
+    right: 0;
+}
+.End\(15\) {
+    right: 15px;
+}
+.Bgc\(t\) {
+    background-color: transparent;
+}
+.Bgc\(\#cccccc\) {
+    background-color: #cccccc;
 }
 .Bd\(n\) {
     border: none;
 }
 .Bdrs\(0\) {
     border-radius: 0;
+}
+.Bdrs\(50p\) {
+    border-radius: 50%;
+}
+.Bdstartw\(1\) {
+    border-left-width: 1px;
+}
+.Bdstarts\(s\) {
+    border-left-style: solid;
+}
+.Bdstartc\(white\) {
+    border-left-color: white;
 }
 .Bdbw\(1\) {
     border-bottom-width: 1px;
@@ -55,6 +129,9 @@
 .Bdbc\(\#dddddd\) {
     border-bottom-color: #dddddd;
 }
+.Bdbc\(\#111123\) {
+    border-bottom-color: #111123;
+}
 .Bxsh\(n\) {
     box-shadow: none;
 }
@@ -63,6 +140,9 @@
 }
 .Cur\(t\) {
     cursor: text;
+}
+.Cur\(p\) {
+    cursor: pointer;
 }
 .Ov\(h\) {
     overflow: visible;
@@ -75,6 +155,12 @@
 }
 .Trfo\(0\,-150p\) {
     transform-origin: 0 -150%;
+}
+.Trfo\(bottom\) {
+    transform-origin: bottom;
+}
+.Rotate\(45deg\) {
+    transform: rotate(45deg);
 }
 .Trs\(300ms\) {
     transition: 300ms;
@@ -113,14 +199,32 @@
         }
     }
 }
+.C\(white\) {
+    color: white;
+}
 .C\(\#607d8b\) {
     color: #607d8b;
+}
+.Fz\(14\) {
+    font-size: 14px;
+}
+.Fz\(20\) {
+    font-size: 20px;
 }
 .Fz\(32\) {
     font-size: 32px;
 }
+.Fz\(40\) {
+    font-size: 40px;
+}
 .Fw\(300\) {
     font-weight: 300;
+}
+.Fw\(400\) {
+    font-weight: 400;
+}
+.Fw\(700\) {
+    font-weight: 700;
 }
 .Lh\(1\) {
     line-height: 1;

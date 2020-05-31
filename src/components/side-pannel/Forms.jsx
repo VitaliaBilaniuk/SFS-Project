@@ -5,7 +5,6 @@ import AddImg from './assets/icon-add.svg';
 import InputItem from './InputItem.jsx';
 import CheckboxItem from './CheckboxItem.jsx';
 import {setFormData, getFormData} from '../../js/actions'
-import './sidePannel.scss';
 import './PhoneForm.scss';
 import '../../atomic/atomic.scss';
 
@@ -98,30 +97,30 @@ class Form extends React.Component {
       return (
         <form>
           {this.renderInputs(inputPropsTop)} 
-          <label className="sfs-label sfs-label__add">
+          <label className="D(b) Pos(r) Mt(35) Mb(15) Fz(14) Fw(700) Lh(1)">
           { this.state.addButtonVisibility ? 
-          <button onClick={(e) => this.handleAdditionalInput(true, e)} className="sfs-button__add"><img src={AddImg}/></button>
+          <button onClick={(e) => this.handleAdditionalInput(true, e)} className="Bgc(t) Bd(n) Pos(a) End(0) B(-15) O(n) Cur(p)"><img src={AddImg}/></button>
           : null }
           Phone number</label>
           <PhoneInput
-            className="sfs-input"
+            className="Py(10) Bdbw(1) Bdbs(s) Bdbc(#111123)"
             placeholder="(201) 555-0123"
             value={ this.state.phone }
             onChange={ this.handleChangePhone } />
           { this.state.secondPhone ? 
             <div>
-              <label className="sfs-label sfs-label__add">
-                <button onClick={(e) => {this.handleAdditionalInput(false, e)}} className="sfs-button__add sfs-button__remove"><img src={AddImg}/></button>
+              <label className="D(b) Pos(r) Mt(35) Mb(15) Fz(14) Fw(700) Lh(1)">
+                <button onClick={(e) => {this.handleAdditionalInput(false, e)}} className="Bgc(t) Bd(n) Pos(a) End(15) B(-15) O(n) Cur(p) Trfo(bottom) Rotate(45deg)"><img src={AddImg}/></button>
                 Mobile
               </label>
               <PhoneInput
-              className="sfs-input"
+              className="Py(10) Bdbw(1) Bdbs(s) Bdbc(#111123)"
               placeholder="(201) 555-0123"
               value={ this.state.mobile }
               onChange={ value => this.props.setFormData('mobile', value) } />
             </div>
           : null } 
-          <h2 className="sfs-sidebar__subtitle">Customize Fields:</h2>
+          <h2 className="Fz(20) Fw(400)">Customize Fields:</h2>
           {this.renderCheckboxes()} 
           {this.renderInputs(inputPropsBottom)} 
         </form>
