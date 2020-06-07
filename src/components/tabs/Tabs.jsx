@@ -9,19 +9,20 @@ import MailLogo from './assets/emailSignature.svg';
 import PassCard from './assets/passCard.svg';
 import BusinessCard from './assets/businessCard.svg';
 import './Tabs.scss';
+import '../../atomic/atomic.scss';
 
 const Tab1 = lazy(() => import('./Tab1.jsx'));
 const Tab2 = lazy(() => import('./Tab2.jsx'));
 const Tab3 = lazy(() => import('./Tab3.jsx'));
 
 const Tabs = () => (
-  <div className="sfs-tabs">
+  <div className="W(100p)">
     <Router>
       <div>
-        <div className="sfs-nav">
-          <NavLink exact to ="/"><img src={MailLogo} className="sfs-nav-img"/>Email signature</NavLink>
-          <NavLink to ="/tab2"><img src={PassCard} className="sfs-nav-img"/>Pass Card</NavLink>
-          <NavLink to ="/tab3"><img src={BusinessCard} className="sfs-nav-img"/>Business card</NavLink>
+        <div className="sfs-nav D(f) Bdbw(1) Bdbs(s) Bdbc(#111123)">
+          <NavLink className="W(100p/3) P(20) Cur(p) Fz(14) C(#111123) Td(n) Bgc(#cccccc)-h Bgc(#cccccc)_active" exact to ="/"><img src={MailLogo} className="Mend(10) H(10)"/>Email signature</NavLink>
+          <NavLink className="W(100p/3) P(20) Cur(p) Fz(14) C(#111123) Td(n) Bgc(#cccccc)-h Bgc(#cccccc)_active" to ="/tab2"><img src={PassCard} className="Mend(10) H(10)"/>Pass Card</NavLink>
+          <NavLink className="W(100p/3) P(20) Cur(p) Fz(14) C(#111123) Td(n) Bgc(#cccccc)-h Bgc(#cccccc)_active" to ="/tab3"><img src={BusinessCard} className="Mend(10) H(10)"/>Business card</NavLink>
         </div>
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>

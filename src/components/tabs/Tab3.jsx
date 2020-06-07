@@ -28,7 +28,7 @@ class Tab3 extends React.Component {
         return (
           <div>
             <div className="section-to-print">
-              <div className="sfs-printed-card">
+              <div className="Bdw(1) Bds(s) Bdc(black) P(20) M(20)">
                 <p>{ name }</p>
                 <p>{ position }</p>
                 <p>{ email }</p>
@@ -36,13 +36,13 @@ class Tab3 extends React.Component {
                 <p>{ mobile }</p>
                 <p>{ skype }</p>
                 <img src={qrCodeSrc}></img>
-                <img src={PerfLogo} className="sfs-full-logo"/>
+                <img src={PerfLogo} className="D(b) W(200)"/>
               </div>
-              <div className="sfs-printed-card">
-                <img src={PerfLogo} className="sfs-full-logo"/>
+              <div className="Bdw(1) Bds(s) Bdc(black) P(20) M(20)">
+                <img src={PerfLogo} className="D(b) W(200)"/>
               </div>
             </div>
-            <button onClick={() => window.print()}>Print or Download card</button>
+            <button className="M(20)" onClick={() => window.print()}>Print or Download card</button>
           </div>
         );
     }

@@ -1,5 +1,16 @@
+.Cnt\(\) {
+    content: '';
+    &-b {
+        &::before {
+            content: '';
+        }
+    }
+}
 .D\(b\) {
     display: block;
+}
+.D\(ib\) {
+    display: inline-block;
 }
 .D\(n\) {
     display: none;
@@ -18,6 +29,11 @@
 }
 .Pos\(a\) {
     position: absolute;
+    &-b {
+        &::before {
+            position: absolute;
+        }
+    }
 }
 .P\(0\) {
     padding: 0;
@@ -44,6 +60,12 @@
 .M\(5\) {
     margin: 5px;
 }
+.M\(20\) {
+    margin: 20px;
+}
+.Mt\(20\) {
+    margin-top: 20px;
+}
 .Mt\(35\) {
     margin-top: 35px;
 }
@@ -54,23 +76,67 @@
     margin-left: auto;
     margin-right: auto;
 }
+.My\(20\) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .Mstart\(15\) {
     margin-left: 15px;
+}
+.Mend\(10\) {
+    margin-right: 10px;
 }
 .W\(100p\) {
     width: 100%;
 }
+.W\(0\) {
+    width: 0;
+}
 .W\(15\) {
     width: 15px;
+}
+.W\(18\) {
+    width: 18px;
+    &-b {
+        &::before {
+            width: 18px;
+        }
+    }
+}
+.W\(50\) {
+    width: 50px;
 }
 .W\(100\) {
     width: 100px;
 }
+.W\(200\) {
+    width: 200px;
+}
 .W\(395\) {
     width: 395px;
 }
+.W\(100p\/3\) {
+    width: calc(100% / 3);
+}
+.H\(0\) {
+    height: 0;
+}
+.H\(10\) {
+    height: 10px;
+}
 .H\(15\) {
     height: 15px;
+}
+.H\(18\) {
+    height: 18px;
+    &-b {
+        &::before {
+            height: 18px;
+        }
+    }
+}
+.H\(20\) {
+    height: 20px;
 }
 .H\(40\) {
     height: 40px;
@@ -81,11 +147,36 @@
 .H\(100vh\-55\) {
     height: calc(100vh - 55px);
 }
+.T\(0\) {
+    top: 0;
+}
 .T\(10\) {
     top: 10px;
 }
 .B\(-15\) {
     bottom: -15px;
+}
+.B\(0\) {
+    bottom: 0;
+}
+.B\(1\) {
+    bottom: 1px;
+    &-b {
+        &::before {
+            bottom: 1px;
+        }
+    }
+}
+.Start\(0\) {
+    left: 0;
+}
+.Start\(1\) {
+    left: 1px;
+    &-b {
+        &::before {
+            left: 1px;
+        }
+    }
 }
 .Start\(10\) {
     left: 10px;
@@ -99,17 +190,52 @@
 .Bgc\(t\) {
     background-color: transparent;
 }
+.Bgc\(white\) {
+    background-color: white;
+    &-b {
+        &::before {
+            background-color: white;
+        }
+    }
+}
 .Bgc\(\#cccccc\) {
     background-color: #cccccc;
+    &-h {
+        &:hover {
+            background-color: #cccccc;
+        }
+    }
+    &_active {
+        &.active {
+            background-color: #cccccc;
+        }
+    }
 }
 .Bd\(n\) {
     border: none;
 }
+.Bds\(s\) {
+    border-style: solid;
+}
+.Bdw\(1\) {
+    border-width: 1px;
+}
+.Bdc\(black\) {
+    border-color: black;
+}
 .Bdrs\(0\) {
     border-radius: 0;
 }
+.Bdrs\(34\) {
+    border-radius: 34px;
+}
 .Bdrs\(50p\) {
     border-radius: 50%;
+    &-b {
+        &::before {
+            border-radius: 50%;
+        }
+    }
 }
 .Bdstartw\(1\) {
     border-left-width: 1px;
@@ -144,6 +270,12 @@
 .Cur\(p\) {
     cursor: pointer;
 }
+.Td\(n\) {
+    text-decoration: none;
+}
+.Op\(0\) {
+    opacity: 0;
+}
 .Ov\(h\) {
     overflow: visible;
 }
@@ -164,14 +296,19 @@
 }
 .Trs\(300ms\) {
     transition: 300ms;
+    &-b {
+        &::before {
+            transition: 300ms;
+        }
+    }
+    &-ph {
+        &::-webkit-input-placeholder {
+            transition: 300ms;
+        }
+    }
 }
 .Pe\(n\) {
     pointer-events: none;
-}
-.Trs\(300ms\)-ph {
-    &::-webkit-input-placeholder {
-        transition: 300ms;
-    }
 }
 .C\(t\)-ph {
     &::-webkit-input-placeholder {
@@ -204,6 +341,9 @@
 }
 .C\(\#607d8b\) {
     color: #607d8b;
+}
+.C\(\#111123\) {
+    color: #111123;
 }
 .Fz\(14\) {
     font-size: 14px;

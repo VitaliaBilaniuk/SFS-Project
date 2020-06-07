@@ -4,7 +4,7 @@ import PhoneInput from 'react-phone-number-input';
 import AddImg from './assets/icon-add.svg'; 
 import InputItem from './InputItem.jsx';
 import CheckboxItem from './CheckboxItem.jsx';
-import {setFormData, getFormData} from '../../js/actions'
+import {setFormData, getFormData} from '../../js/actions';
 import './PhoneForm.scss';
 import '../../atomic/atomic.scss';
 
@@ -17,7 +17,7 @@ class Form extends React.Component {
         skypeVisibility: true,
         addButtonVisibility: false,
         secondPhone: false,
-        minNumberLength: 8,
+        minNumberLength: 8
       };
     }
 
@@ -63,7 +63,10 @@ class Form extends React.Component {
             name={inputProp.name} 
             placeholder={inputProp.placeholder}
             value={this.props.form[inputProp.name]}
-            onChange={this.handleInputChange}/>) 
+            onChange={this.handleInputChange}
+            values={this.state.values}
+            errors={this.state.errors}
+            />) 
         }
       }));
     }
@@ -85,7 +88,7 @@ class Form extends React.Component {
             label={checkboxProp.label}/>) 
       }));
     }
-    render() {
+    render() { 
       const inputPropsTop = [
         {title: 'Full Name', type: 'text', name: "name", placeholder: "John Doe", visibility: true},
         {title: 'Position', type: 'text', name: "position", placeholder: "ui engineer", visibility: true},

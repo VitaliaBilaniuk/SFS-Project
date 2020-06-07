@@ -14,7 +14,7 @@ class Tab2 extends React.Component {
     render() {
         const { form } = this.props;
         return (
-        <div>
+        <div className="M(20)">
             <div>
             <img alt="profile-photo" className="sfs-select__image" 
                 style={{ maxWidth: '100%' }}                
