@@ -5,6 +5,7 @@ import AddImg from './assets/icon-add.svg';
 import InputItem from './InputItem.jsx';
 import CheckboxItem from './CheckboxItem.jsx';
 import {setFormData, getFormData} from '../../js/actions';
+import validate from '../../utils/validationRules';
 import './PhoneForm.scss';
 import '../../atomic/atomic.scss';
 
@@ -17,13 +18,23 @@ class Form extends React.Component {
         skypeVisibility: true,
         addButtonVisibility: false,
         secondPhone: false,
-        minNumberLength: 8
+        minNumberLength: 8,
+        values: {},
+        errors: {},
+        isSubmitting: false
       };
     }
 
     handleInputChange = (e) => {
       const {name, value} = e.target;
       this.props.setFormData(name, value);
+      this.setState({
+        values: {
+          ...this.state.values, 
+          [name]: value 
+        },
+        errors: validate(this.state.values)
+      });
     }
 
     handleChangePhone = (value) => {

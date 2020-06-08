@@ -8,7 +8,7 @@ import {
 import MailLogo from './assets/emailSignature.svg';
 import PassCard from './assets/passCard.svg';
 import BusinessCard from './assets/businessCard.svg';
-import './Tabs.scss';
+import './Clickboard.scss';
 import '../../atomic/atomic.scss';
 
 const Tab1 = lazy(() => import('./Tab1.jsx'));
