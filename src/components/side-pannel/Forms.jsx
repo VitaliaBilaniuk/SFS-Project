@@ -108,27 +108,32 @@ class Form extends React.Component {
       const inputPropsBottom = [
         {title: 'Custom company website', type: 'text', name: "website", placeholder: "perfectial.com", visibility: this.state.websiteVisibility},
         {title: 'Custom Afterword', type: 'text', name: "afterword", placeholder: "Thanks", visibility: this.state.afterwordVisibility}]; 
+
+      const sfsFormLabelStyle = "D(b) Pos(r) Mt(35) Mb(15) Fz(14) Fw(700) Lh(1)";
+      const sfsFormPhoneButtonStyle = "Bgc(t) Bd(n) Pos(a) End(0) B(-15) O(n) Cur(p)";
+      const sfsFormMobileButtonStyle = "Bgc(t) Bd(n) Pos(a) End(15) B(-15) O(n) Cur(p) Trfo(bottom) Rotate(45deg)";
+      const sfsFormPhoneInputStyle = "Py(10) Bdbw(1) Bdbs(s) Bdbc(#111123)";
       return (
         <form>
           {this.renderInputs(inputPropsTop)} 
-          <label className="D(b) Pos(r) Mt(35) Mb(15) Fz(14) Fw(700) Lh(1)">
+          <label className={sfsFormLabelStyle}>
           { this.state.addButtonVisibility ? 
-          <button onClick={(e) => this.handleAdditionalInput(true, e)} className="Bgc(t) Bd(n) Pos(a) End(0) B(-15) O(n) Cur(p)"><img src={AddImg}/></button>
+          <button onClick={(e) => this.handleAdditionalInput(true, e)} className={sfsFormPhoneButtonStyle}><img src={AddImg}/></button>
           : null }
           Phone number</label>
           <PhoneInput
-            className="Py(10) Bdbw(1) Bdbs(s) Bdbc(#111123)"
+            className={sfsFormPhoneInputStyle}
             placeholder="(201) 555-0123"
             value={ this.state.phone }
             onChange={ this.handleChangePhone } />
           { this.state.secondPhone ? 
             <div>
-              <label className="D(b) Pos(r) Mt(35) Mb(15) Fz(14) Fw(700) Lh(1)">
-                <button onClick={(e) => {this.handleAdditionalInput(false, e)}} className="Bgc(t) Bd(n) Pos(a) End(15) B(-15) O(n) Cur(p) Trfo(bottom) Rotate(45deg)"><img src={AddImg}/></button>
+              <label className={sfsFormLabelStyle}>
+                <button onClick={(e) => {this.handleAdditionalInput(false, e)}} className={sfsFormMobileButtonStyle}><img src={AddImg}/></button>
                 Mobile
               </label>
               <PhoneInput
-              className="Py(10) Bdbw(1) Bdbs(s) Bdbc(#111123)"
+              className={sfsFormPhoneInputStyle}
               placeholder="(201) 555-0123"
               value={ this.state.mobile }
               onChange={ value => this.props.setFormData('mobile', value) } />

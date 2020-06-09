@@ -30,6 +30,9 @@ class Tab1 extends React.Component {
 
     render() {
         const { form } = this.props;
+        const sfsTab1LabelStyle = "Pos(r) D(ib) W(50) H(20) Mt(20)";
+        const sfsTab1InputStyle = "Op(0) W(0) H(0) Bgc(#2196F3)-c~span TranslateX(30)-c~span-b";
+        const sfsTab1SwitcherStyle = "Pos(a) Pos(a)-b T(0) B(0) Start(0) End(0) Bgc(#cccccc) Trs(300ms) Trs(300ms)-b Cur(p) Bdrs(34) Bdrs(50p)-b Cnt()-b H(18)-b W(18)-b Start(1)-b B(1)-b Bgc(white)-b";
         return (
         <div className="M(20)">
           <div id="signature" className="sfs-area-copied">
@@ -60,13 +63,13 @@ class Tab1 extends React.Component {
           <div>
             Signature style: {this.state.showCompactVersion? 'full': 'compact'}
           </div>
-          <label className="Pos(r) D(ib) W(50) H(20) Mt(20)">
+          <label className={sfsTab1LabelStyle}>
             <input 
               type="checkbox"
-              className="Op(0) W(0) H(0) Bgc(#2196F3)-c~span TranslateX(30)-c~span-b"
+              className={sfsTab1InputStyle}
               onClick={this.handleToggleChange}
             />
-            <span className="Pos(a) Pos(a)-b T(0) B(0) Start(0) End(0) Bgc(#cccccc) Trs(300ms) Trs(300ms)-b Cur(p) Bdrs(34) Bdrs(50p)-b Cnt()-b H(18)-b W(18)-b Start(1)-b B(1)-b Bgc(white)-b"></span>
+            <span className={sfsTab1SwitcherStyle}></span>
           </label>
           <div>
             <button className="My(20)" onClick={this.copyToClipboard}>Copy to clipboard</button> 

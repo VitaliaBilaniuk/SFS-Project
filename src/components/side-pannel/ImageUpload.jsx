@@ -44,11 +44,12 @@ class ImageUpload extends PureComponent {
   
   render() {
     const { croppedImageUrl } = this.state;
+    const sfsImageUploadStyle = "D(b) W(100) H(100) M(0) Cur(p) Bdrs(50p)";
     return (
       <div>
         <div>
           <input ref={this.fileField} type="file" className="D(n)" onChange={this.onSelectFile} />        
-          <img alt="sdsds" className="D(b) W(100) H(100) M(0) Cur(p) Bdrs(50p)" 
+          <img alt="sdsds" className={sfsImageUploadStyle} 
             style={{ maxWidth: '100%' }} 
             onClick={this.handleImitateClick}               
             src= { croppedImageUrl ? croppedImageUrl : ProfileImg }       
