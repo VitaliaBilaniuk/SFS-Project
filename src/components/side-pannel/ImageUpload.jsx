@@ -2,7 +2,7 @@ import React from 'react';
 import { PureComponent } from 'react';
 import ImageCrop from './ImageCrop.jsx';
 import ProfileImg from './assets/male-new.svg';
-import './ImageUpload.scss';
+import '../../atomic/atomic.scss';
 import {setFormData, getFormData} from '../../js/actions';
 import { connect } from 'react-redux';
 
@@ -44,15 +44,16 @@ class ImageUpload extends PureComponent {
   
   render() {
     const { croppedImageUrl } = this.state;
+    const sfsImageUploadStyle = "D(b) W(100) H(100) M(0) Cur(p) Bdrs(50p)";
     return (
       <div>
-        <div className="sfs-select">
-        <input ref={this.fileField} type="file" onChange={this.onSelectFile} />        
-        <img alt="sdsds" className="sfs-select__image" 
-          style={{ maxWidth: '100%' }} 
-          onClick={this.handleImitateClick}               
-          src= { croppedImageUrl ? croppedImageUrl : ProfileImg }       
-        />    
+        <div>
+          <input ref={this.fileField} type="file" className="D(n)" onChange={this.onSelectFile} />        
+          <img alt="sdsds" className={sfsImageUploadStyle} 
+            style={{ maxWidth: '100%' }} 
+            onClick={this.handleImitateClick}               
+            src= { croppedImageUrl ? croppedImageUrl : ProfileImg }       
+          />    
         </div>
         { this.state.showElements ? 
         <ImageCrop src={this.state.src} 

@@ -4,9 +4,10 @@ import PhoneInput from 'react-phone-number-input';
 import AddImg from './assets/icon-add.svg'; 
 import InputItem from './InputItem.jsx';
 import CheckboxItem from './CheckboxItem.jsx';
-import {setFormData, getFormData} from '../../js/actions'
-import './sidePannel.scss';
+import {setFormData, getFormData} from '../../js/actions';
+import validate from '../../utils/validationRules';
 import './PhoneForm.scss';
+import '../../atomic/atomic.scss';
 
 class Form extends React.Component {
     constructor(props) {
@@ -18,12 +19,22 @@ class Form extends React.Component {
         addButtonVisibility: false,
         secondPhone: false,
         minNumberLength: 8,
+        values: {},
+        errors: {},
+        isSubmitting: false
       };
     }
 
     handleInputChange = (e) => {
       const {name, value} = e.target;
       this.props.setFormData(name, value);
+      this.setState({
+        values: {
+          ...this.state.values, 
+          [name]: value 
+        },
+        errors: validate(this.state.values)
+      });
     }
 
     handleChangePhone = (value) => {
@@ -63,7 +74,10 @@ class Form extends React.Component {
             name={inputProp.name} 
             placeholder={inputProp.placeholder}
             value={this.props.form[inputProp.name]}
-            onChange={this.handleInputChange}/>) 
+            onChange={this.handleInputChange}
+            values={this.state.values}
+            errors={this.state.errors}
+            />) 
         }
       }));
     }
@@ -85,7 +99,7 @@ class Form extends React.Component {
             label={checkboxProp.label}/>) 
       }));
     }
-    render() {
+    render() { 
       const inputPropsTop = [
         {title: 'Full Name', type: 'text', name: "name", placeholder: "John Doe", visibility: true},
         {title: 'Position', type: 'text', name: "position", placeholder: "ui engineer", visibility: true},
@@ -94,33 +108,38 @@ class Form extends React.Component {
       const inputPropsBottom = [
         {title: 'Custom company website', type: 'text', name: "website", placeholder: "perfectial.com", visibility: this.state.websiteVisibility},
         {title: 'Custom Afterword', type: 'text', name: "afterword", placeholder: "Thanks", visibility: this.state.afterwordVisibility}]; 
+
+      const sfsFormLabelStyle = "D(b) Pos(r) Mt(35) Mb(15) Fz(14) Fw(700) Lh(1)";
+      const sfsFormPhoneButtonStyle = "Bgc(t) Bd(n) Pos(a) End(0) B(-15) O(n) Cur(p)";
+      const sfsFormMobileButtonStyle = "Bgc(t) Bd(n) Pos(a) End(15) B(-15) O(n) Cur(p) Trfo(bottom) Rotate(45deg)";
+      const sfsFormPhoneInputStyle = "Py(10) Bdbw(1) Bdbs(s) Bdbc(#111123)";
       return (
         <form>
           {this.renderInputs(inputPropsTop)} 
-          <label className="sfs-label sfs-label__add">
+          <label className={sfsFormLabelStyle}>
           { this.state.addButtonVisibility ? 
-          <button onClick={(e) => this.handleAdditionalInput(true, e)} className="sfs-button__add"><img src={AddImg}/></button>
+          <button onClick={(e) => this.handleAdditionalInput(true, e)} className={sfsFormPhoneButtonStyle}><img src={AddImg}/></button>
           : null }
           Phone number</label>
           <PhoneInput
-            className="sfs-input"
+            className={sfsFormPhoneInputStyle}
             placeholder="(201) 555-0123"
             value={ this.state.phone }
             onChange={ this.handleChangePhone } />
           { this.state.secondPhone ? 
             <div>
-              <label className="sfs-label sfs-label__add">
-                <button onClick={(e) => {this.handleAdditionalInput(false, e)}} className="sfs-button__add sfs-button__remove"><img src={AddImg}/></button>
+              <label className={sfsFormLabelStyle}>
+                <button onClick={(e) => {this.handleAdditionalInput(false, e)}} className={sfsFormMobileButtonStyle}><img src={AddImg}/></button>
                 Mobile
               </label>
               <PhoneInput
-              className="sfs-input"
+              className={sfsFormPhoneInputStyle}
               placeholder="(201) 555-0123"
               value={ this.state.mobile }
               onChange={ value => this.props.setFormData('mobile', value) } />
             </div>
           : null } 
-          <h2 className="sfs-sidebar__subtitle">Customize Fields:</h2>
+          <h2 className="Fz(20) Fw(400)">Customize Fields:</h2>
           {this.renderCheckboxes()} 
           {this.renderInputs(inputPropsBottom)} 
         </form>

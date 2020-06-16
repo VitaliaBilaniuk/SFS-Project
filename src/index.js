@@ -7,13 +7,14 @@ import Header from './components/header/Header';
 import SidePannel from './components/side-pannel/SidePannel';
 import Tabs from './components/tabs/Tabs';
 import Global from './components/params/Global';
+import './atomic/atomic.scss';
 
 const store = configureStore();
 
 const App = () => (
     <div>
         <Header />
-        <div className="sfs-row">
+        <div className="D(f)">
             <SidePannel />
             <Tabs Global={Global}/>
         </div>
