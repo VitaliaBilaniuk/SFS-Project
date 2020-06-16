@@ -5,7 +5,8 @@
   body * {
     visibility: hidden;
   }
-  .section-to-print, .section-to-print * {
+  .section-to-print,
+  .section-to-print * {
     visibility: visible;
   }
   .section-to-print {

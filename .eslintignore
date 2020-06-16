@@ -1,0 +1,10 @@
+node_modules/*
+/node_modules/*
+public/*
+dist/*
+configs/*
+.dotfiles/*
+.jenkins/*
+.vscode/*
+.vscode/*
+.eslint-loader-cache

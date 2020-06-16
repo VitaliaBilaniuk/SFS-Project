@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "checkJs": true,
+    "baseUrl": "./",
+    "paths": {
+      "@AppRoot/*": ["./src/*"],
+      "@Assets/*": ["./src/assets/*"],
+      "@Components/*": ["./src/components/*"],
+      "@Containers/*": ["./src/containers/*"],
+      "@API/*": ["./src/core/Api/*"]
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
+}
