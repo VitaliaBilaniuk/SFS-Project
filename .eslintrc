@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "extends": ["airbnb", "prettier", "prettier/react", "plugin:import/recommended"],
-  "plugins": [ "react", "prettier", "react-hooks"],
+  "plugins": ["react", "prettier", "react-hooks"],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
@@ -48,28 +48,28 @@
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "max-len": ["error", {"code": 100}],
+    "max-len": ["error", { "code": 100 }],
     "no-return-assign": ["off"],
     "prefer-promise-reject-errors": ["off"],
     "react/jsx-filename-extension": ["off"],
     "react/prop-types": ["warn"],
-    "import/no-unresolved": [2, {"commonjs": true, "amd": true}],
+    "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
     "import/named": 2,
     "import/namespace": 2,
     "import/default": 2,
     "import/export": 2,
-    "jsx-a11y/label-has-for": [ 2, {
-      "required": {
-          "every": [ "id" ]
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": {
+          "every": ["id"]
+        }
       }
-    }],
+    ],
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": [
-          ".storybook/**",
-          "stories/**" 
-        ]
+        "devDependencies": [".storybook/**", "stories/**"]
       }
     ]
   },
@@ -88,10 +88,7 @@
         ]
       },
       "node": {
-        "moduleDirectory": [
-          "node_modules",
-          "src"
-        ]
+        "moduleDirectory": ["node_modules", "src"]
       }
     }
   }

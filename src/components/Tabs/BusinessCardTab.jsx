@@ -1,8 +1,9 @@
 import React from 'react';
-import PerfLogo from './assets/logo-colored.svg';
 import { connect } from 'react-redux';
 
-class Tab3 extends React.Component {
+import PerfLogo from './assets/logo-colored.svg';
+
+class BusinessCardTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,7 +12,7 @@ class Tab3 extends React.Component {
   }
 
   render() {
-    const sfsTab3CardWrappersStyle = 'Bdw(1) Bds(s) Bdc(black) P(20) M(20)';
+    const sfsBusinessCardTabCardWrappersStyle = 'Bdw(1) Bds(s) Bdc(black) P(20) M(20)';
     const { form } = this.props;
     const name = form.name || 'Johny Doe',
       position = form.position || 'Front end developer',
@@ -29,7 +30,7 @@ class Tab3 extends React.Component {
     return (
       <div>
         <div className="section-to-print">
-          <div className={sfsTab3CardWrappersStyle}>
+          <div className={sfsBusinessCardTabCardWrappersStyle}>
             <p>{name}</p>
             <p>{position}</p>
             <p>{email}</p>
@@ -39,7 +40,7 @@ class Tab3 extends React.Component {
             <img src={qrCodeSrc}></img>
             <img src={PerfLogo} className="D(b) W(200)" />
           </div>
-          <div className={sfsTab3CardWrappersStyle}>
+          <div className={sfsBusinessCardTabCardWrappersStyle}>
             <img src={PerfLogo} className="D(b) W(200)" />
           </div>
         </div>
@@ -53,4 +54,4 @@ class Tab3 extends React.Component {
 
 const mapStateToProps = ({ form }) => ({ form });
 
-export default connect(mapStateToProps, {})(Tab3);
+export default connect(mapStateToProps, {})(BusinessCardTab);

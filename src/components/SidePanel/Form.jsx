@@ -11,7 +11,7 @@ import validate from '../../utils/validationRules';
 import AddImg from './assets/icon-add.svg';
 
 import './PhoneForm.scss';
-import '../../atomic/atomic.scss';
+import '../../index.scss';
 
 class Form extends React.Component {
   constructor(props) {

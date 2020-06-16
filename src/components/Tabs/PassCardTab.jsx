@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ProfileImg from '../SidePanel/assets/male-new.svg';
 
-class Tab2 extends React.Component {
+class PassCardTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,4 +30,4 @@ class Tab2 extends React.Component {
 
 const mapStateToProps = ({ form }) => ({ form });
 
-export default connect(mapStateToProps, {})(Tab2);
+export default connect(mapStateToProps, {})(PassCardTab);

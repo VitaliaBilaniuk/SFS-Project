@@ -1,8 +1,9 @@
 import React from 'react';
-import PerfLogo from './assets/logo-colored.svg';
 import { connect } from 'react-redux';
 
-class Tab1 extends React.Component {
+import PerfLogo from './assets/logo-colored.svg';
+
+class EmailSignatureTab extends React.Component {
   constructor(props) {
     super(props);
     this.state = { copySuccess: '' };
@@ -28,9 +29,10 @@ class Tab1 extends React.Component {
 
   render() {
     const { form } = this.props;
-    const sfsTab1LabelStyle = 'Pos(r) D(ib) W(50) H(20) Mt(20)';
-    const sfsTab1InputStyle = 'Op(0) W(0) H(0) Bgc(#2196F3)-c~span TranslateX(30)-c~span-b';
-    const sfsTab1SwitcherStyle =
+    const sfsEmailSignatureTabLabelStyle = 'Pos(r) D(ib) W(50) H(20) Mt(20)';
+    const sfsEmailSignatureTabInputStyle =
+      'Op(0) W(0) H(0) Bgc(#2196F3)-c~span TranslateX(30)-c~span-b';
+    const sfsEmailSignatureTabSwitcherStyle =
       'Pos(a) Pos(a)-b T(0) B(0) Start(0) End(0) Bgc(#cccccc) Trs(300ms) Trs(300ms)-b Cur(p) Bdrs(34) Bdrs(50p)-b Cnt()-b H(18)-b W(18)-b Start(1)-b B(1)-b Bgc(white)-b';
     return (
       <div className="M(20)">
@@ -58,9 +60,13 @@ class Tab1 extends React.Component {
         </div>
 
         <div>Signature style: {this.state.showCompactVersion ? 'full' : 'compact'}</div>
-        <label className={sfsTab1LabelStyle}>
-          <input type="checkbox" className={sfsTab1InputStyle} onClick={this.handleToggleChange} />
-          <span className={sfsTab1SwitcherStyle}></span>
+        <label className={sfsEmailSignatureTabLabelStyle}>
+          <input
+            type="checkbox"
+            className={sfsEmailSignatureTabInputStyle}
+            onClick={this.handleToggleChange}
+          />
+          <span className={sfsEmailSignatureTabSwitcherStyle}></span>
         </label>
         <div>
           <button className="My(20)" onClick={this.copyToClipboard}>
@@ -75,4 +81,4 @@ class Tab1 extends React.Component {
 
 const mapStateToProps = ({ form }) => ({ form });
 
-export default connect(mapStateToProps, {})(Tab1);
+export default connect(mapStateToProps, {})(EmailSignatureTab);

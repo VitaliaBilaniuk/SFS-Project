@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../atomic/atomic.scss';
+import '../../index.scss';
 
 const InputItem = (props) => {
   const sfsFormInputsStyle = `Bxz(bb) W(100p) P(10) Bd(n) Bdrs(0) Bxsh(n) Bdbw(1) Bdbs(s) Bdc(#dddddd) O(n) Cur(t) Trs(300ms)-ph C(t)-ph C(#a9a9a9)-f-ph Scale(0.6)-f~label Scale(0.6)-v~label ${

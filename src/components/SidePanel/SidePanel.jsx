@@ -1,7 +1,7 @@
 import React from 'react';
-import Form from './Forms.jsx';
+import Form from './Form.jsx';
 import ImageUpload from './ImageUpload.jsx';
-import '../../atomic/atomic.scss';
+import '../../index.scss';
 
 const sfsAsidePanelStyle = 'W(400) Ovy(a) H(100vh-55) Fxs(0)';
 

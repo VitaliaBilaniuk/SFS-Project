@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import formReducer from './Forms.reducers';
+import formReducer from './Form.reducers';
 
 export default combineReducers({ form: formReducer });

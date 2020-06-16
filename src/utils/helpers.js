@@ -1,4 +1,4 @@
-const Global = {
+const helpers = {
   inputs: {
     name: '',
     position: '',
@@ -20,4 +20,4 @@ const Global = {
   },
 };
 
-export default Global;
+export default helpers;

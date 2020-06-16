@@ -18,3 +18,459 @@ body {
     flex-direction: row;
   }
 }
+
+.Cnt\(\) {
+  content: "";
+  &-b {
+    &::before {
+      content: "";
+    }
+  }
+}
+
+//Display styles
+.D\(b\) {
+  display: block;
+}
+.D\(ib\) {
+  display: inline-block;
+}
+.D\(n\) {
+  display: none;
+}
+.D\(f\) {
+  display: flex;
+}
+
+//Flex styles
+.Ai\(c\) {
+  align-items: center;
+}
+.Fxs\(0\) {
+  flex-shrink: 0;
+}
+
+//Position styles
+.Pos\(r\) {
+  position: relative;
+}
+.Pos\(a\) {
+  position: absolute;
+  &-b {
+    &::before {
+      position: absolute;
+    }
+  }
+}
+.T\(0\) {
+  top: 0;
+}
+.T\(10\) {
+  top: 10px;
+}
+.B\(-15\) {
+  bottom: -15px;
+}
+.B\(0\) {
+  bottom: 0;
+}
+.B\(1\) {
+  bottom: 1px;
+  &-b {
+    &::before {
+      bottom: 1px;
+    }
+  }
+}
+.Start\(0\) {
+  left: 0;
+}
+.Start\(1\) {
+  left: 1px;
+  &-b {
+    &::before {
+      left: 1px;
+    }
+  }
+}
+.Start\(10\) {
+  left: 10px;
+}
+.End\(0\) {
+  right: 0;
+}
+.End\(15\) {
+  right: 15px;
+}
+
+//Padding & Margin styles
+@for $i from 0 through 20 {
+  $step: 5;
+
+  //Padding [ 0 - 100px ] with step 5px
+  .P\(#{$i * $step}\) {
+    padding: #{$i * $step}px;
+  }
+
+  //Padding ( left & right ) [ 0 - 100px ] with step 5px
+  .Px\(#{$i * $step}\) {
+    padding-left: #{$i * $step}px;
+    padding-right: #{$i * $step}px;
+  }
+
+  //Padding ( left ) [ 0 - 100px ] with step 5px
+  .Pstart\(#{$i * $step}\) {
+    padding-left: #{$i * $step}px;
+  }
+
+  //Padding ( right ) [ 0 - 100px ] with step 5px
+  .Pend\(#{$i * $step}\) {
+    padding-right: #{$i * $step}px;
+  }
+
+  //Padding ( top & bottom ) [ 0 - 100px ] with step 5px
+  .Py\(#{$i * $step}\) {
+    padding-top: #{$i * $step}px;
+    padding-bottom: #{$i * $step}px;
+  }
+
+  //Padding ( top ) [ 0 - 100px ] with step 5px
+  .Pt\(#{$i * $step}\) {
+    padding-top: #{$i * $step}px;
+  }
+
+  //Padding ( bottom ) [ 0 - 100px ] with step 5px
+  .Pb\(#{$i * $step}\) {
+    padding-bottom: #{$i * $step}px;
+  }
+}
+@for $i from 0 through 20 {
+  $step: 5;
+
+  //Margin [ 0 - 100px ] with step 5px
+  .M\(#{$i * $step}\) {
+    margin: #{$i * $step}px;
+  }
+
+  //Margin ( left & right ) [ 0 - 100px ] with step 5px
+  .Mx\(#{$i * $step}\) {
+    margin-left: #{$i * $step}px;
+    margin-right: #{$i * $step}px;
+  }
+
+  //Margin ( left ) [ 0 - 100px ] with step 5px
+  .Mstart\(#{$i * $step}\) {
+    margin-left: #{$i * $step}px;
+  }
+
+  //Margin ( right ) [ 0 - 100px ] with step 5px
+  .Mend\(#{$i * $step}\) {
+    margin-right: #{$i * $step}px;
+  }
+
+  //Margin ( top & bottom ) [ 0 - 100px ] with step 5px
+  .My\(#{$i * $step}\) {
+    margin-top: #{$i * $step}px;
+    margin-bottom: #{$i * $step}px;
+  }
+
+  //Margin ( top ) [ 0 - 100px ] with step 5px
+  .Mt\(#{$i * $step}\) {
+    margin-top: #{$i * $step}px;
+  }
+
+  //Margin ( bottom ) [ 0 - 100px ] with step 5px
+  .Mb\(#{$i * $step}\) {
+    margin-bottom: #{$i * $step}px;
+  }
+}
+.Mx\(a\) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//Width & Height styles
+.W\(100p\) {
+  width: 100%;
+}
+.W\(100p\/3\) {
+  width: calc(100% / 3);
+}
+@for $i from 0 through 20 {
+  $step: 1;
+
+  //Width [ 0 - 20px ] with step 1px ( inc. pseudo elements width )
+  .W\(#{$i * $step}\) {
+    width: #{$i * $step}px;
+    &-b {
+      &::before {
+        width: #{$i * $step}px;
+      }
+    }
+    &-a {
+      &::after {
+        width: #{$i * $step}px;
+      }
+    }
+  }
+}
+@for $i from 0 through 10 {
+  $step: 50;
+  $min: 50;
+
+  //Width [ 50px - 550px ] with step 50px
+  .W\(#{$min + $i * $step}\) {
+    width: #{$min + $i * $step}px;
+  }
+}
+.H\(100vh\-55\) {
+  height: calc(100vh - 55px);
+}
+@for $i from 0 through 20 {
+  $step: 1;
+
+  //Height [ 0 - 20px ] with step 1px ( inc. pseudo elements height )
+  .H\(#{$i * $step}\) {
+    height: #{$i * $step}px;
+    &-b {
+      &::before {
+        height: #{$i * $step}px;
+      }
+    }
+    &-a {
+      &::after {
+        height: #{$i * $step}px;
+      }
+    }
+  }
+}
+@for $i from 0 through 5 {
+  $step: 20;
+  $min: 20;
+
+  //Height [ 20px - 120px ] with step 20px
+  .H\(#{$min + $i * $step}\) {
+    height: #{$min + $i * $step}px;
+  }
+}
+
+//Typography styles
+@for $i from 0 through 20 {
+  $step: 2;
+  $min: 10;
+
+  //Font size [ 10px - 50px ] with step 2px
+  .Fz\(#{$min + $i * $step}\) {
+    font-size: #{$min + $i * $step}px;
+  }
+}
+@for $i from 1 through 9 {
+  $step: 100;
+
+  //Font weight [ 100 - 900 ] with step 100
+  .Fw\(#{$i * $step}\) {
+    font-weight: #{$i * $step};
+  }
+}
+.Lh\(1\) {
+  line-height: 1;
+}
+.Td\(n\) {
+  text-decoration: none;
+}
+
+//Color styles
+.C\(white\) {
+  color: white;
+}
+.C\(\#607d8b\) {
+  color: #607d8b;
+}
+.C\(\#111123\) {
+  color: #111123;
+}
+.C\(red\) {
+  color: red;
+}
+.C\(t\)-ph {
+  &::-webkit-input-placeholder {
+    color: transparent;
+  }
+}
+.C\(\#a9a9a9\)-f-ph {
+  &:focus {
+    &::-webkit-input-placeholder {
+      color: #a9a9a9;
+    }
+  }
+}
+
+//Background styles
+.Bgc\(t\) {
+  background-color: transparent;
+}
+.Bgc\(white\) {
+  background-color: white;
+  &-b {
+    &::before {
+      background-color: white;
+    }
+  }
+}
+.Bgc\(\#cccccc\) {
+  background-color: #cccccc;
+  &-h {
+    &:hover {
+      background-color: #cccccc;
+    }
+  }
+  &_active {
+    &.active {
+      background-color: #cccccc;
+    }
+  }
+}
+.Bgc\(\#2196F3\)-c\~span {
+  &:checked {
+    & ~ span {
+      background-color: #2196f3;
+    }
+  }
+}
+
+//Border styles
+.Bd\(n\) {
+  border: none;
+}
+.Bds\(s\) {
+  border-style: solid;
+}
+.Bdstarts\(s\) {
+  border-left-style: solid;
+}
+.Bdbs\(s\) {
+  border-bottom-style: solid;
+}
+.Bdw\(1\) {
+  border-width: 1px;
+}
+.Bdstartw\(1\) {
+  border-left-width: 1px;
+}
+.Bdbw\(1\) {
+  border-bottom-width: 1px;
+}
+.Bdc\(\#dddddd\) {
+  border-color: #dddddd;
+}
+.Bdc\(black\) {
+  border-color: black;
+}
+.Bdc\(red\) {
+  border-color: red;
+}
+.Bdstartc\(white\) {
+  border-left-color: white;
+}
+.Bdbc\(\#dddddd\) {
+  border-bottom-color: #dddddd;
+}
+.Bdbc\(\#111123\) {
+  border-bottom-color: #111123;
+}
+.Bdrs\(0\) {
+  border-radius: 0;
+}
+.Bdrs\(34\) {
+  border-radius: 34px;
+}
+.Bdrs\(50p\) {
+  border-radius: 50%;
+  &-b {
+    &::before {
+      border-radius: 50%;
+    }
+  }
+}
+
+//Transform styles
+.Rotate\(45deg\) {
+  transform: rotate(45deg);
+}
+.TranslateX\(30\)-c\~span-b {
+  &:checked {
+    & ~ span {
+      &::before {
+        transform: translateX(30px);
+      }
+    }
+  }
+}
+.Scale\(0\.6\)-f\~label {
+  &:focus {
+    & ~ label {
+      transform: scale(0.6);
+    }
+  }
+}
+.Scale\(0\.6\)-v\~label {
+  &:valid {
+    & ~ label {
+      transform: scale(0.6);
+    }
+  }
+}
+.Trfo\(0\,-150p\) {
+  transform-origin: 0 -150%;
+}
+.Trfo\(bottom\) {
+  transform-origin: bottom;
+}
+
+//Transition styles
+.Trs\(300ms\) {
+  transition: 300ms;
+  &-b {
+    &::before {
+      transition: 300ms;
+    }
+  }
+  &-ph {
+    &::-webkit-input-placeholder {
+      transition: 300ms;
+    }
+  }
+}
+
+//Overflow styles
+.Ov\(h\) {
+  overflow: visible;
+}
+.Ovy\(a\) {
+  overflow-y: auto;
+}
+
+//Cursor styles
+.Cur\(t\) {
+  cursor: text;
+}
+.Cur\(p\) {
+  cursor: pointer;
+}
+
+//Other styles
+.Bxz\(bb\) {
+  box-sizing: border-box;
+}
+.Bxsh\(n\) {
+  box-shadow: none;
+}
+.O\(n\) {
+  outline: none;
+}
+.Op\(0\) {
+  opacity: 0;
+}
+.Pe\(n\) {
+  pointer-events: none;
+}

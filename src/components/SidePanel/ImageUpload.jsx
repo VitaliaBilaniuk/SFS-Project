@@ -8,7 +8,7 @@ import ImageCrop from './ImageCrop.jsx';
 
 import ProfileImg from './assets/male-new.svg';
 
-import '../../atomic/atomic.scss';
+import '../../index.scss';
 
 class ImageUpload extends PureComponent {
   constructor(props) {
