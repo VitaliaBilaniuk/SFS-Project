@@ -1,0 +1,5 @@
+**/build
+**/compiled
+**/dist
+**/package.json
+**/.bebelrc

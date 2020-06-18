@@ -1,0 +1,95 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier", "prettier/react", "plugin:import/recommended"],
+  "plugins": ["react", "prettier", "react-hooks"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "globalReturn": false,
+      "jsx": true,
+      "modules": false
+    },
+    "babelOptions": {
+      "configFile": "./babel.config.js"
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "commonjs": true,
+    "jest": true,
+    "jquery": true,
+    "node": true
+  },
+  "globals": {
+    "$iq": true,
+    "$msg": true,
+    "$pres": true,
+    "Strophe": true,
+    "window": true,
+    "DATE": true,
+    "API_VERSION": true,
+    "NODE_ENV": true,
+    "APP_VERSION": true,
+    "DEBUG": true,
+    "DEPLOYMENT_ENVIRONMENT": true,
+    "IS_STANDBY": true,
+    "DEFAULT_TENANT_ID": true,
+    "BUILD_DISPLAY_NAME": true,
+    "BUILD_ID": true,
+    "MC2_PORTAL_URL": true,
+    "TOUCH_PORTAL_URL": true,
+    "API_VERSION_PARAM": true,
+    "DEFAULT_TENANT_ID_PARAM": true,
+    "TOUCH_API": true,
+    "MC2_API": true
+  },
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "max-len": ["error", { "code": 100 }],
+    "no-return-assign": ["off"],
+    "prefer-promise-reject-errors": ["off"],
+    "react/jsx-filename-extension": ["off"],
+    "react/prop-types": ["warn"],
+    "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/default": 2,
+    "import/export": 2,
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": {
+          "every": ["id"]
+        }
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [".storybook/**", "stories/**"]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./configs/webpack/index.js"
+      },
+      "alias": {
+        "map": [
+          ["@AppRoot", "./src/"],
+          ["@Assets", "./src/assets/"],
+          ["@Containers", "./src/containers/"],
+          ["@Components", "./src/components/"],
+          ["@API", "./src/core/Api/"]
+        ]
+      },
+      "node": {
+        "moduleDirectory": ["node_modules", "src"]
+      }
+    }
+  }
+}

@@ -1,12 +1,15 @@
 {
-    "presets": [
-      ["@babel/env", {
+  "presets": [
+    [
+      "@babel/env",
+      {
         "modules": false
-      }]
-    ],
-    "plugins": [
-      "syntax-dynamic-import",
-      "@babel/plugin-proposal-class-properties" ,
-      "@babel/transform-runtime"
+      }
     ]
-  }
+  ],
+  "plugins": [
+    "syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/transform-runtime"
+  ]
+}
