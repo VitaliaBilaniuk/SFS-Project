@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProfileImg from '../SidePanel/assets/male-new.svg';
+import { SfsTabContentWrapper } from './styles';
 
 class PassCardTab extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class PassCardTab extends React.Component {
   render() {
     const { form } = this.props;
     return (
-      <div className="M(20)">
+      <SfsTabContentWrapper>
         <div>
           <img
             alt="profile-photo"
@@ -23,7 +24,7 @@ class PassCardTab extends React.Component {
           />
           {form.name ? <p>{form.name}</p> : <p>Johny Doe </p>}
         </div>
-      </div>
+      </SfsTabContentWrapper>
     );
   }
 }

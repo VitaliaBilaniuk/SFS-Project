@@ -3,16 +3,16 @@ import Form from './Form.jsx';
 import ImageUpload from './ImageUpload.jsx';
 import '../../index.scss';
 
-const sfsAsidePanelStyle = 'W(400) Ovy(a) H(100vh-55) Fxs(0)';
+import { SfsAside, SfsAsideContent, SfsAsideTitle } from './styles';
 
 const SidePanel = () => (
-  <aside className={sfsAsidePanelStyle}>
-    <div className="P(20) Pt(0)">
-      <h1 className="Fz(32) Fw(300) Lh(1)">Employee Details</h1>
+  <SfsAside>
+    <SfsAsideContent>
+      <SfsAsideTitle>Employee Details</SfsAsideTitle>
       <ImageUpload />
       <Form />
-    </div>
-  </aside>
+    </SfsAsideContent>
+  </SfsAside>
 );
 
 export default SidePanel;

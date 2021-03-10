@@ -1,18 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-
 body {
-  margin: 0;
-  font-family: "Open Sans", sans-serif;
-  overflow-y: auto;
-  height: 100%;
-  min-height: 100%;
-  letter-spacing: -0.0003em;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -webkit-font-feature-settings: "liga" on;
-  font-feature-settings: "liga" on;
-  -webkit-text-size-adjust: 100%;
   .sfs-row {
     display: flex;
     flex-direction: row;

@@ -8,7 +8,8 @@ import ImageCrop from './ImageCrop.jsx';
 
 import ProfileImg from './assets/male-new.svg';
 
-import '../../index.scss';
+import { SfsImgUpload, SfsImgUploadInput, SfsImgUploadWrapper } from './styles';
+import Button from '../Button';
 
 class ImageUpload extends PureComponent {
   constructor(props) {
@@ -45,19 +46,17 @@ class ImageUpload extends PureComponent {
 
   render() {
     const { croppedImageUrl } = this.state;
-    const sfsImageUploadStyle = 'D(b) W(100) H(100) M(0) Cur(p) Bdrs(50p)';
     return (
-      <div>
-        <div>
-          <input ref={this.fileField} type="file" className="D(n)" onChange={this.onSelectFile} />
-          <img
-            alt="sdsds"
-            className={sfsImageUploadStyle}
-            style={{ maxWidth: '100%' }}
+      <>
+        <SfsImgUploadWrapper>
+          <SfsImgUploadInput ref={this.fileField} type="file" onChange={this.onSelectFile} />
+          <SfsImgUpload
+            alt="Upload image"
             onClick={this.handleImitateClick}
             src={croppedImageUrl ? croppedImageUrl : ProfileImg}
           />
-        </div>
+          <Button content="Upload new photo" />
+        </SfsImgUploadWrapper>
         {this.state.showElements ? (
           <ImageCrop
             src={this.state.src}
@@ -65,7 +64,7 @@ class ImageUpload extends PureComponent {
             handleCropSave={this.handleCropSave}
           />
         ) : null}
-      </div>
+      </>
     );
   }
 }

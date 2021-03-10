@@ -11,6 +11,8 @@ import SidePanel from './components/SidePanel';
 import Tabs from './components/Tabs/Tabs';
 
 import './index.scss';
+import GlobalStyle from './utils/globalStyles.js';
+import { SfsMainWrapper } from './styles.js';
 
 const store = configureStore();
 const history = createBrowserHistory();
@@ -19,10 +21,10 @@ const App = () => (
   <Router history={history}>
     <div>
       <Header />
-      <div className="D(f)">
+      <SfsMainWrapper>
         <SidePanel />
         <Tabs />
-      </div>
+      </SfsMainWrapper>
     </div>
   </Router>
 );
@@ -31,6 +33,7 @@ export default App;
 
 ReactDOM.render(
   <Provider store={store}>
+    <GlobalStyle />
     <App />
   </Provider>,
   document.getElementById('root'),

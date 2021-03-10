@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import PerfLogo from './assets/logo-colored.svg';
+import { SfsTabContentWrapper } from './styles';
 
 class EmailSignatureTab extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class EmailSignatureTab extends React.Component {
     const sfsEmailSignatureTabSwitcherStyle =
       'Pos(a) Pos(a)-b T(0) B(0) Start(0) End(0) Bgc(#cccccc) Trs(300ms) Trs(300ms)-b Cur(p) Bdrs(34) Bdrs(50p)-b Cnt()-b H(18)-b W(18)-b Start(1)-b B(1)-b Bgc(white)-b';
     return (
-      <div className="M(20)">
+      <SfsTabContentWrapper>
         <div id="signature" className="sfs-area-copied">
           Thanks
           {form.name ? <p>{form.name}</p> : <p>Johny Doe </p>}
@@ -74,7 +75,7 @@ class EmailSignatureTab extends React.Component {
           </button>
           {this.state.copySuccess}
         </div>
-      </div>
+      </SfsTabContentWrapper>
     );
   }
 }

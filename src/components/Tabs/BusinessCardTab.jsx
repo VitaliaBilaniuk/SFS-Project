@@ -2,6 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import PerfLogo from './assets/logo-colored.svg';
+import {
+  SfsBusinessCard,
+  SfsBusinessCardArea,
+  SfsBusinessCardFrontLogo,
+  SfsBusinessCardName,
+  SfsBusinessCardPrintSection,
+  SfsBusinessCardQr,
+  SfsBusinessCardQrWrapper,
+  SfsBusinessCardRear,
+  SfsBusinessCardRearLogo,
+  SfsBusinessCardText,
+  SfsTabContentWrapper
+} from './styles';
 
 class BusinessCardTab extends React.Component {
   constructor(props) {
@@ -28,26 +41,35 @@ class BusinessCardTab extends React.Component {
         `VOICE%3a${mobile}%0d%0aNOTE%3aSkype%20${skype}%0d%0aURL%3a%0d%0aADR%3a%3b%3b%0d%0a` +
         `END%3aVCARD%0A&addtext=&txtcolor=000000&fgdcolor=000000&bgdcolor=FFFFFF&qrsize=200`;
     return (
-      <div>
-        <div className="section-to-print">
-          <div className={sfsBusinessCardTabCardWrappersStyle}>
-            <p>{name}</p>
-            <p>{position}</p>
-            <p>{email}</p>
-            <p>{phone}</p>
-            <p>{mobile}</p>
-            <p>{skype}</p>
-            <img src={qrCodeSrc}></img>
-            <img src={PerfLogo} className="D(b) W(200)" />
-          </div>
-          <div className={sfsBusinessCardTabCardWrappersStyle}>
-            <img src={PerfLogo} className="D(b) W(200)" />
-          </div>
-        </div>
+      <SfsTabContentWrapper>
+        <SfsBusinessCardPrintSection className="section-to-print">
+          <SfsBusinessCardArea>
+            <SfsBusinessCard>
+              <SfsBusinessCardFrontLogo src={PerfLogo} />
+            </SfsBusinessCard>
+          </SfsBusinessCardArea>
+
+          <SfsBusinessCardArea>
+            <SfsBusinessCardRear>
+              <div>
+                <SfsBusinessCardName>{name}</SfsBusinessCardName>
+                <SfsBusinessCardText>{position}</SfsBusinessCardText>
+                <SfsBusinessCardText>{email}</SfsBusinessCardText>
+                <SfsBusinessCardText>{phone}</SfsBusinessCardText>
+                <SfsBusinessCardText>{mobile}</SfsBusinessCardText>
+                <SfsBusinessCardText>{skype}</SfsBusinessCardText>
+              </div>
+              <SfsBusinessCardQrWrapper>
+                <SfsBusinessCardRearLogo src={PerfLogo} />
+                <SfsBusinessCardQr src={qrCodeSrc} />
+              </SfsBusinessCardQrWrapper>
+            </SfsBusinessCardRear>
+          </SfsBusinessCardArea>
+        </SfsBusinessCardPrintSection>
         <button className="M(20)" onClick={() => window.print()}>
           Print or Download card
         </button>
-      </div>
+      </SfsTabContentWrapper>
     );
   }
 }

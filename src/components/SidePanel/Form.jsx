@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PhoneInput from 'react-phone-number-input';
 
 import { setFormData, getFormData } from '../../actions';
 
@@ -10,8 +9,9 @@ import validate from '../../utils/validationRules';
 
 import AddImg from './assets/icon-add.svg';
 
+import { SfsFormAdditionalHeading, SfsFormLabel, SfsFormMobileButton, SfsFormPhoneButton, SfsFormPhoneInput } from './styles';
+
 import './PhoneForm.scss';
-import '../../index.scss';
 
 class Form extends React.Component {
   constructor(props) {
@@ -124,7 +124,13 @@ class Form extends React.Component {
   };
   render() {
     const inputPropsTop = [
-      { title: 'Full Name', type: 'text', name: 'name', placeholder: 'John Doe', visibility: true },
+      {
+        title: 'Full Name',
+        type: 'text',
+        name: 'name',
+        placeholder: 'John Doe',
+        visibility: true
+      },
       {
         title: 'Position',
         type: 'text',
@@ -133,14 +139,14 @@ class Form extends React.Component {
         visibility: true,
       },
       {
-        title: 'Email',
+        title: 'Email address',
         type: 'email',
         name: 'email',
         placeholder: 'vitaliia.bilaniuk@perfectial.com',
         visibility: true,
       },
       {
-        title: 'Skype name',
+        title: 'Skype',
         type: 'text',
         name: 'skype',
         placeholder: 'vitaliia.bilaniuk',
@@ -164,53 +170,39 @@ class Form extends React.Component {
       },
     ];
 
-    const sfsFormLabelStyle = 'D(b) Pos(r) Mt(35) Mb(15) Fz(14) Fw(700) Lh(1)';
-    const sfsFormPhoneButtonStyle = 'Bgc(t) Bd(n) Pos(a) End(0) B(-15) O(n) Cur(p)';
-    const sfsFormMobileButtonStyle =
-      'Bgc(t) Bd(n) Pos(a) End(15) B(-15) O(n) Cur(p) Trfo(bottom) Rotate(45deg)';
-    const sfsFormPhoneInputStyle = 'Py(10) Bdbw(1) Bdbs(s) Bdbc(#111123)';
     return (
       <form>
         {this.renderInputs(inputPropsTop)}
-        <label className={sfsFormLabelStyle}>
+        <SfsFormLabel>
           {this.state.addButtonVisibility ? (
-            <button
-              onClick={(e) => this.handleAdditionalInput(true, e)}
-              className={sfsFormPhoneButtonStyle}
-            >
+            <SfsFormPhoneButton onClick={(e) => this.handleAdditionalInput(true, e)}>
               <img src={AddImg} />
-            </button>
+            </SfsFormPhoneButton>
           ) : null}
           Phone number
-        </label>
-        <PhoneInput
-          className={sfsFormPhoneInputStyle}
+        </SfsFormLabel>
+        <SfsFormPhoneInput
           placeholder="(201) 555-0123"
           value={this.state.phone}
           onChange={this.handleChangePhone}
         />
         {this.state.secondPhone ? (
           <div>
-            <label className={sfsFormLabelStyle}>
-              <button
-                onClick={(e) => {
-                  this.handleAdditionalInput(false, e);
-                }}
-                className={sfsFormMobileButtonStyle}
-              >
+            <SfsFormLabel>
+              <SfsFormMobileButton onClick={(e) => {this.handleAdditionalInput(false, e);}}>
                 <img src={AddImg} />
-              </button>
+              </SfsFormMobileButton>
               Mobile
-            </label>
-            <PhoneInput
-              className={sfsFormPhoneInputStyle}
+            </SfsFormLabel>
+            <SfsFormPhoneInput
               placeholder="(201) 555-0123"
               value={this.state.mobile}
               onChange={(value) => this.props.setFormData('mobile', value)}
             />
           </div>
         ) : null}
-        <h2 className="Fz(20) Fw(400)">Customize Fields:</h2>
+
+        <SfsFormAdditionalHeading>Customize Fields:</SfsFormAdditionalHeading>
         {this.renderCheckboxes()}
         {this.renderInputs(inputPropsBottom)}
       </form>

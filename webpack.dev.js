@@ -6,5 +6,8 @@ module.exports = merge(common, {
   devServer: {
     hot: true,
     historyApiFallback: true,
-  },
+    watchOptions: {
+      poll: true
+    }
+  }
 });
